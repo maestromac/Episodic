@@ -1,4 +1,4 @@
-# FresherNote
+# Episodic
 
 [Heroku link][heroku]
 

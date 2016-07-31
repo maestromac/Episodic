@@ -1,45 +1,41 @@
 # Schema Information
 
-## notes
+## Stories
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
 
-## notebooks
+## like
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
-description | string    | 
+story_id    | integer   | not null, foreign key (references users), indexed
+user_id     | string    | not null
 
-## reminders
+## comment
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
+story_id    | string    | not null, foreign key (references notes), indexed
+body        | text      | not null
 date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
 
-## tags
+## genre
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
 
-## taggings
+## genre_assoiation
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
+story_id    | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
+genre_id    | integer   | not null, foreign key (references tags), indexed
 
 ## users
 column name     | data type | details
