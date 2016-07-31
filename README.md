@@ -27,7 +27,10 @@ Episodic is a web application inspired by Medium that will be build using Ruby o
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] (semi) Infinite Scroll for Stories
+- [ ] Genres
+  - [ ] Smooth, bug-free navigation
+  - [ ] Adequate seed data to demonstrate the site's features
+  - [ ] Adequate CSS styling
 
 ## Design Docs
 * [View Wireframes][views]

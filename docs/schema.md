@@ -8,36 +8,36 @@ title       | string    | not null
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 
-## likes
+## Likes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-story_id    | integer   | not null, foreign key (references users), indexed
-user_id     | string    | not null
+story_id    | integer   | not null, foreign key (references stories), indexed
+user_id     | string    | not null, foreign key (references users), indexed
 
-## comments
+## Comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-story_id    | string    | not null, foreign key (references notes), indexed
+story_id    | string    | not null, foreign key (references stories), indexed
 body        | text      | not null
 date        | datetime  | not null
 
-## genres
+## Genres
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
 
-## genre_assoiations
+## Genre_assoiations
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-story_id    | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-genre_id    | integer   | not null, foreign key (references tags), indexed
+story_id    | integer   | not null, foreign key (references stories), indexed, unique [story_id]
+genre_id    | integer   | not null, foreign key (references genres), indexed
 
-## users
+## Users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
