@@ -8,14 +8,14 @@ title       | string    | not null
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 
-## like
+## likes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 story_id    | integer   | not null, foreign key (references users), indexed
 user_id     | string    | not null
 
-## comment
+## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -24,13 +24,13 @@ story_id    | string    | not null, foreign key (references notes), indexed
 body        | text      | not null
 date        | datetime  | not null
 
-## genre
+## genres
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
 
-## genre_assoiation
+## genre_assoiations
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
