@@ -17,6 +17,6 @@
 
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
-[story]: ./wireframes/story_view.png
-[stories_index]: ./wireframes/stories_index.png
-[story-form]: ./wireframes/notebook_form.png
+[story]: ./wireframes/stories_view.png
+[stories_index]: ./wireframes/story_index.png
+[story-form]: ./wireframes/story_form.png
