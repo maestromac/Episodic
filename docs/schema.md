@@ -24,6 +24,15 @@ story_id    | string    | not null, foreign key (references stories), indexed
 body        | text      | not null
 date        | datetime  | not null
 
+## Follows
+
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+author_id   | integer   | not null, foreign key (references user), indexed, unique [follower_id]
+follower_id | integer   | not null, foreign key (references user), indexed
+
+
 ## Genres
 column name | data type | details
 ------------|-----------|-----------------------

@@ -97,7 +97,23 @@ the API.
 Phase 3 adds organization to the comments. Comments belong to a Story,
 which has its own `Index` view.
 
-### Phase 4: Genres (1 days, W2 W 6pm)
+### Phase 4: Follows and Feeds (1 days, W2 W 6pm)
+**objective:** Customize Stories Index for user
+
+- [ ] Only display stories from author the user follows
+- [ ] display only new or recent stories ( i.e. published within one week ago)
+
+
+### Phase 5: Allow Complex Styling in Stories (1 days, W2 Th 6pm)
+
+**objective:** Enable complex styling of stories.
+
+- [ ] Integrate `react-quill` (based on Quill.js).
+- [ ] Use Rails helpers to sanitize HTML before rendering.
+- [ ] Style the new Quill elements.
+- [ ] Add Quill styling to seeded stories
+
+### Phase 6: - Genres (1 day, W2 F 6pm)
 
 **Objective:** Notes can be tagged with multiple Genres, and Genres are searchable.
 
@@ -110,21 +126,7 @@ which has its own `Index` view.
 - [ ] Style new elements
 - [ ] Seed Genres and tag the seeded Stories
 
-### Phase 5: Allow Complex Styling in Stories (1 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of stories.
-
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
-- [ ] Add Quill styling to seeded stories
-
-### Phase 6: - Follows and Feeds (1 day, W2 F 6pm)
-
-**objective:** Customize Stories Index for user
-
-- [ ] Only display stories from author the user follows
-- [ ] display only new or recent stories ( i.e. published within one week ago)
 
 ### Bonus Features (TBD)
 - [ ] Search through stories for blocks of text
