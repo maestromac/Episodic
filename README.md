@@ -63,76 +63,73 @@ Episodic is a web application inspired by Medium that will be build using Ruby o
 - [ ] style signin/signup components
 - [ ] seed users
 
-### Phase 2: Notes Model, API, and components (2 days, W1 F 6pm)
+### Phase 2: Stories Model, API, and components (2 days, W1 F 6pm)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Stories can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Story` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for Stories (`StoriesController`)
+- [ ] jBuilder views for stories
 - [ ] test out API interaction in the console.
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle after editing.
-- [ ] style notes components
-- [ ] seed notes
+- implement each story component, building out the flux loop as needed.
+  - [ ] `StoriesIndex`
+  - [ ] `StoryIndexItem`
+  - [ ] `StoryForm`
+- [ ] save stories to the DB when the form loses focus or is left idle after editing.
+- [ ] style stories components
+- [ ] seed stories
 
-### Phase 3: Notebooks (2 day, W2 Tu 6pm)
+### Phase 3: Comments (2 day, W2 Tu 6pm)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Comment belong to Stories
 
-- [ ] create `Notebook` model
+- [ ] create `Comment` model
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
+  - [ ] Comment CRUD
+  - [ ] adding comments requires a story
+  - [ ] moving comments to a different story
+  - [ ] viewing comments by story
 - [ ] Use CSS to style new components
-- [ ] Seed Notebooks
+- [ ] Seed Comments
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
+Phase 3 adds organization to the comments. Comments belong to a Story,
 which has its own `Index` view.
 
-### Phase 4: Tags (1 days, W2 W 6pm)
+### Phase 4: Genres (1 days, W2 W 6pm)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Notes can be tagged with multiple Genres, and Genres are searchable.
 
-- [ ] create `Tag` model and join table
+- [ ] create `Genre` model and join table
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] fetching Genres for story
+  - [ ] adding Genres to story
+  - [ ] creating Genres while adding to stories
+  - [ ] searching stories by tag
 - [ ] Style new elements
-- [ ] Seed tags and tag the seeded Notebooks
+- [ ] Seed Genres and tag the seeded Stories
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+### Phase 5: Allow Complex Styling in Stories (1 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of notes.
+**objective:** Enable complex styling of stories.
 
 - [ ] Integrate `react-quill` (based on Quill.js).
 - [ ] Use Rails helpers to sanitize HTML before rendering.
 - [ ] Style the new Quill elements.
-- [ ] Add Quill styling to seeded notes
+- [ ] Add Quill styling to seeded stories
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: - Follows and Feeds (1 day, W2 F 6pm)
 
-**objective:** Add infinite scroll to Notes Index
+**objective:** Customize Stories Index for user
 
-- [ ] Paginate Notes Index API to send 20 results at a time
-- [ ] Append next set of results when user scrolls and is near bottom
-- [ ] Make sure styling still looks good
-- [ ] Ensure we have enough seeded notes to demo infinite scroll
+- [ ] Only display stories from author the user follows
+- [ ] display only new or recent stories ( i.e. published within one week ago)
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Search through stories for blocks of text
+- [ ] Bonus: Bookmarks
+- [ ] Add infinite scrolling
 
 [phase-one]: docs/phases/phase1.md
 [phase-two]: docs/phases/phase2.md

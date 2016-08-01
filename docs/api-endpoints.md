@@ -19,34 +19,36 @@
 - `DELETE /api/session`
 - `GET /api/session`
 
-### Notes
+### Stories
 
-- `GET /api/notes`
-  - Notes index/search
-  - accepts `tag_name` query param to list notes by tag
-  - accepts pagination params (if I get there)
-- `POST /api/notes`
-- `GET /api/notes/:id`
-- `PATCH /api/notes/:id`
-- `DELETE /api/notes/:id`
+- `GET /api/stories`
+  - stories index/search
+  - accepts `genre_name` query param to list stories by genre
+- `POST /api/stories`
+- `GET /api/stories/:id`
+- `PATCH /api/stories/:id`
+- `DELETE /api/stories/:id`
 
-### Notebooks
+### Comments
 
-- `GET /api/notebooks`
-- `POST /api/notebooks`
-- `GET /api/notebooks/:id`
-- `PATCH /api/notebooks/:id`
-- `DELETE /api/notebooks/:id`
-- `GET /api/notebooks/:id/notes`
-  - index of all notes for a notebook
-  - accepts pagination params (if I get there)
+- From stories
+  - `GET /api/stories/:story_id/comments`
+  - `POST /api/stories/:story_id/comments`
+  - `GET /api/stories/:story_id/comments/:id`
+  - `PATCH /api/stories/:story_id/comments/:id`
+  - `DELETE /api/stories/:story_id/comments/:id`
+- From Users
+  - `GET /api/users/:user_id/comments`
+  - `POST /api/users/:user_id/comments`
+  - `GET /api/users/:user_id/comments/:id`
+  - `PATCH /api/users/:user_id/comments/:id`
+  - `DELETE /api/users/:user_id/comments/:id`
 
-### Tags
+### Genres
 
-- A note's tags will be included in the note show template
-- `GET /api/tags`
-  - includes query param for typeahead suggestions
-- `POST /api/notes/:note_id/tags`: add tag to note by name
+- A story's genre will be included in the stories show template
+- `GET /api/genres`
+- `POST /api/stories/:story_id/genres`: add genre to story by name
   - if note doesn't already exist, it will be created
-- `DELETE /api/notes/:note_id/tags/:tag_name`: remove tag from note by
+- `DELETE /api/stories/:story_id/genres/:story_name`: remove tag from note by
   name

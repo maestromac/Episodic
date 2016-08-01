@@ -1,16 +1,5 @@
 # Flux Cycles
 
-Flux loops are organized by data type. Under each data type, there may
-be sub-categories, and each action is listed with the sequence of events
-that result from its invocation, ending with the API or store. Finally,
-store listeners are listed at the end.
-
-You should be able to use this document trace an **action** starting
-with where it was invoked, through the **API**/**store** involved, and
-finally to the **components** that update as a result. This is important
-because once you start implementing your flux loops, that's precisely
-what you'll need to do.
-
 ## Auth Cycles
 
 ### Session API Request Actions
@@ -51,107 +40,107 @@ what you'll need to do.
   0. invoked from API callbacks on success for actions that generate POST requests
   0. removes `_errors` for a given `form` in the `ErrorStore`
 
-## Note Cycles
+## Story Cycles
 
-### Notes API Request Actions
+### Stories API Request Actions
 
-* `fetchAllNotes`
-  0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notes` is called.
-  0. `receiveAllNotes` is set as the success callback.
+* `fetchAllStories`
+  0. invoked from `StoriesIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/stories` is called.
+  0. `receiveAllStories` is set as the success callback.
 
-* `createNote`
+* `createStory`
   0. invoked from new note button `onClick`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the success callback.
+  0. `POST /api/stories` is called.
+  0. `receiveSingleStory` is set as the success callback.
 
 * `fetchSingleNote`
-  0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notes/:id` is called.
-  0. `receiveSingleNote` is set as the success callback.
+  0. invoked from `StoryDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/stories/:id` is called.
+  0. `receiveSingleStory` is set as the success callback.
 
-* `updateNote`
-  0. invoked from `NoteForm` `onSubmit`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the success callback.
+* `updateStory`
+  0. invoked from `StoryForm` `onSubmit`
+  0. `POST /api/stories` is called.
+  0. `receiveSingleStory` is set as the success callback.
 
-* `destroyNote`
+* `destroyStory`
   0. invoked from delete note button `onClick`
-  0. `DELETE /api/notes/:id` is called.
-  0. `removeNote` is set as the success callback.
+  0. `DELETE /api/stories/:id` is called.
+  0. `removeStory` is set as the success callback.
 
 ### Notes API Response Actions
 
-* `receiveAllNotes`
+* `receiveAllStores`
   0. invoked from an API callback.
-  0. `Note` store updates `_notes` and emits change.
+  0. `Story` store updates `_stories` and emits change.
 
-* `receiveSingleNote`
+* `receiveSingleStory`
   0. invoked from an API callback.
-  0. `Note` store updates `_notes[id]` and emits change.
+  0. `Story` store updates `_stories[id]` and emits change.
 
-* `removeNote`
+* `removeStory`
   0. invoked from an API callback.
-  0. `Note` store removes `_notes[id]` and emits change.
+  0. `Story` store removes `_stories[id]` and emits change.
 
 ### Store Listeners
 
-* `NotesIndex` component listens to `Note` store.
-* `NoteDetail` component listens to `Note` store.
+* `StoriesIndex` component listens to `Story` store.
+* `StoryDetail` component listens to `Story` store.
 
 
-## Notebook Cycles
+## Comment Cycles
 
-### Notebooks API Request Actions
+### Comments API Request Actions
 
-* `fetchAllNotebooks`
-  0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks` is called.
-  0. `receiveAllNotebooks` is set as the success callback.
+* `fetchAllComments`
+  0. invoked from `CommentsIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/comments` is called.
+  0. `receiveAllComments` is set as the success callback.
 
-* `createNotebook`
-  0. invoked from new notebook button `onClick`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+* `createComment`
+  0. invoked from new comment button `onClick`
+  0. `POST /api/comments` is called.
+  0. `receiveSingleComment` is set as the callback.
 
-* `fetchSingleNotebook`
-  0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks/:id` is called.
-  0. `receiveSingleNotebook` is set as the success callback.
+* `fetchSingleComment`
+  0. invoked from `CommentDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/comments/:id` is called.
+  0. `receiveSingleComment` is set as the success callback.
 
-* `updateNotebook`
-  0. invoked from `NotebookForm` `onSubmit`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the success callback.
+* `updateComment`
+  0. invoked from `CommentForm` `onSubmit`
+  0. `POST /api/comments` is called.
+  0. `receiveSingleComment` is set as the success callback.
 
-* `destroyNotebook`
-  0. invoked from delete notebook button `onClick`
-  0. `DELETE /api/notebooks/:id` is called.
-  0. `removeNotebook` is set as the success callback.
+* `destroyComment`
+  0. invoked from delete comment button `onClick`
+  0. `DELETE /api/comments/:id` is called.
+  0. `removeComment` is set as the success callback.
 
-### Notebooks API Response Actions
+### Comments API Response Actions
 
-* `receiveAllNotebooks`
+* `receiveAllComments`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks` and emits change.
+  0. `Comment` store updates `_comments` and emits change.
 
-* `receiveSingleNotebook`
+* `receiveSingleComment`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks[id]` and emits change.
+  0. `Comment` store updates `_comments[id]` and emits change.
 
-* `removeNotebook`
+* `removeComment`
   0. invoked from an API callback.
-  0. `Notebook` store removes `_notebooks[id]` and emits change.
+  0. `Comment` store removes `_comments[id]` and emits change.
 
 ### Store Listeners
 
-* `NotebooksIndex` component listens to `Notebook` store.
+* `CommmentsIndex` component listens to `Commment` store.
 
 
 ## SearchSuggestion Cycles
 
 * `fetchSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when there is text
+  0. invoked from `StorySearchBar` `onChange` when there is text
   0. `GET /api/notes` is called with `text` param.
   0. `receiveSearchSuggestions` is set as the success callback.
 
@@ -160,7 +149,7 @@ what you'll need to do.
   0. `SearchSuggestion` store updates `_suggestions` and emits change.
 
 * `removeSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when empty
+  0. invoked from `StorySearchBar` `onChange` when empty
   0. `SearchSuggestion` store resets `_suggestions` and emits change.
 
 ### Store Listeners
