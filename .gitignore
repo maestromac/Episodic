@@ -17,3 +17,6 @@
 bundle.js
 bundle.js.map
 node_modules/
+log/
+tmp/
+notes.txt

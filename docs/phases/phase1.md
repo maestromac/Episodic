@@ -19,7 +19,7 @@
 * App
 * LoginForm
 * SignupForm
-* NotesIndex (just a skeleton)
+* StoriesIndex (just a skeleton)
 
 ### Stores
 * CurrentUser
@@ -39,7 +39,7 @@
 * `logIn`
 * `logOut`
 * `signUp`  
-* `fetchCurrentUser`
+* `currentUser`
 
 ## Gems/Libraries
 * BCrypt (Gem)
