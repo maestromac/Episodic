@@ -15,6 +15,12 @@ const App = React.createClass({
     return (
       <div>
         <h2>Episodic</h2>
+        Temp links
+        <br />
+        <Link to={`/login`}>Log In</Link>
+        <br />
+        <Link to={`/signup`}>Sign Up</Link>
+        <br /><br />
         {this.props.children}
       </div>
     );
