@@ -12,6 +12,7 @@ let _login = (user) => {
   _currentUser = user;
   SessionStore.__emitChange();
 };
+
 let _logout = () => {
   _currentUser = {};
   SessionStore.__emitChange();

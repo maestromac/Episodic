@@ -12,8 +12,13 @@ const LoginForm = React.createClass({
   },
 
   componentDidMount () {
-    SessionStore.addListener(this._onChange);
-    ErrorStore.addListener(this._onChange);
+    this.listener1 = SessionStore.addListener(this._onChange);
+    this.listener2 = ErrorStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount () {
+    this.listener1.remove();
+    this.listener2.remove();
   },
 
   _onChange () {
