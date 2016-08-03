@@ -16,6 +16,10 @@ const SignupForm = React.createClass({
     this.listener = SessionStore.addListener(this._onChange);
   },
 
+  componentWillUnmount () {
+    this.listener.remove();
+  },
+
   _onChange () {
     this.setState({ errors: ErrorStore.errors('SignupForm') });
     if ( SessionStore.isUserLoggedIn() ) {
@@ -41,7 +45,13 @@ const SignupForm = React.createClass({
   render () {
     return (
       <div id="login-form">
-        {this.state.errors}
+
+        <ul>
+          {this.state.errors.map( (error, idx) => {
+            return <li key={idx}>{error}</li>;
+          })}
+        </ul>
+
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'
