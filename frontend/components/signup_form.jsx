@@ -56,16 +56,17 @@ const SignupForm = React.createClass({
 
   render () {
     return (
-      <div id="login">
+      <div className="signup-form">
 
         <h2>Sign Up</h2>
-        <ul>
+        <ul className="error">
           {this.state.errors.map( (error, idx) => {
             return <li key={idx}>{error}</li>;
           })}
         </ul>
         <form onSubmit={this.handleSubmit}>
           <input
+            className='username'
             type='text'
             value={this.state.username}
             onChange={this.handleUsernameChange}
@@ -73,6 +74,7 @@ const SignupForm = React.createClass({
             />
           <br />
           <input
+            className='password'
             type='password'
             value={this.state.password}
             onChange={this.handlePasswordChange}
@@ -80,13 +82,14 @@ const SignupForm = React.createClass({
             />
           <br />
           <input
+            className='password'
             type='password'
             value={this.state.verify}
             onChange={this.handleVerifyPasswordChange}
-            placeholder='verify password'
+            placeholder='Verify Password'
             />
           <br />
-          <input type="submit" value="Sign Up" />
+          <input className="button" type="submit" value="Sign Up" />
         </form>
 
       </div>
