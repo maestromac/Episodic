@@ -5,7 +5,8 @@ const React = require('react'),
       LoginForm = require('./components/login_form'),
       SignupForm = require('./components/signup_form'),
       SessionStore = require('./stores/session_store'),
-      SessionActions = require('./actions/session_actions');
+      SessionActions = require('./actions/session_actions'),
+      StoriesIndex = require('./components/stories_index');
 
 
 // dev test
@@ -51,10 +52,21 @@ const App = React.createClass({
   }
 });
 
+let _ensureLoggedIn = (nextState, replace) => {
+  if (!SessionStore.isUserLoggedIn()) {
+    debugger
+    replace('/login');
+  }
+};
+
 const routes = (
   <Route path="/" component={App}>
-    <Route path="/login" component={LoginForm} />
-    <Route path="/signup" component={SignupForm} />
+    <Route path="login" component={LoginForm} />
+    <Route path="signup" component={SignupForm} />
+    <Route
+      path="stories"
+      component={StoriesIndex}
+      onEnter={ _ensureLoggedIn } />
   </Route>
 );
 

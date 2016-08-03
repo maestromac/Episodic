@@ -12,12 +12,13 @@ const SignupForm = React.createClass({
   },
 
   componentDidMount () {
-    ErrorStore.addListener(this._onChange);
-    this.listener = SessionStore.addListener(this._onChange);
+    this.listener1 = ErrorStore.addListener(this._onChange);
+    this.listener2 = SessionStore.addListener(this._onChange);
   },
 
   componentWillUnmount () {
-    this.listener.remove();
+    this.listener1.remove();
+    this.listener2.remove();
   },
 
   _onChange () {
