@@ -12,6 +12,10 @@ ErrorStore.errors = (form) => {
   if (form === _form) {
     return _errors.slice();
   }
+
+  if (_form === undefined) {
+    return [];
+  }
 };
 
 let _setErrors = (form, errors) => {

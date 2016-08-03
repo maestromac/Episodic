@@ -1,3 +1,50 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login-form {
+  width: inherit;
+  height: inherit;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+
+  h2 {
+    font-size: 22px;
+    color: gray;
+
+  }
+
+  .username, .password {
+    border: 1px solid gray;
+    width: 69%;
+    font-size: 15px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    font-weight: 100;
+    text-align: inherit;
+  }
+
+  .button {
+    background: #00ab6c;
+    border: 2px solid #00ab6c;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-bottom: 8px;
+    width: 71%;
+    color: white;
+  }
+
+  .guest {
+    background: #002215;
+    border: 2px solid #002215;
+  }
+
+}
+
+.error {
+  list-style: inherit;
+  text-align: start;
+  font-size: x-small;
+  color: red;
+}

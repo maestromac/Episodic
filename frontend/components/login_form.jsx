@@ -1,5 +1,6 @@
 const React = require('react'),
       ReactDom = require('react-dom'),
+      Modal = require('react-modal'),
       SessionActions = require('../actions/session_actions'),
       SessionStore = require('../stores/session_store'),
       hashHistory = require('react-router').hashHistory,
@@ -49,10 +50,19 @@ const LoginForm = React.createClass({
 
   render () {
     return (
-      <div id="login-form">
-        {this.state.errors}
-        <form onSubmit={this.handleSubmit}>
+      <div className="login-form">
+
+        <h2>Log In</h2>
+
+        <ul className="error">
+          {this.state.errors.map( (error, idx) => {
+            return <li key={idx}>{error}</li>;
+          })}
+        </ul>
+
+        <form onSubmit={this.handleSubmit} >
           <input
+            className="username"
             type='text'
             value={this.state.username}
             onChange={this.handleUsernameChange}
@@ -60,15 +70,19 @@ const LoginForm = React.createClass({
             />
           <br />
           <input
+            className="password"
             type='password'
             value={this.state.password}
             onChange={this.handlePasswordChange}
             placeholder='Password'
             />
           <br />
-          <input type="submit" value="Log In" />
+          <input className="button login" type="submit" value="Log In" />
         </form>
-        <button onClick={this.guestLogin}>Guest Log In</button>
+        <button
+          className="button guest"
+          onClick={this.guestLogin}>
+          Guest Log In</button>
       </div>
     );
   }

@@ -21,4 +21,3 @@
   * **component:** `SignupForm` **path:** /signup
   * **component:** `StoriesIndex` **path:** index
   * **component:** `StoriesIndex` **path:** `Stories/`
-    * **component:** `StoryDetail` **path:** `Stories/:noteId`

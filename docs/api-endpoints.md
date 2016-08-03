@@ -35,13 +35,13 @@
   - `GET /api/stories/:story_id/comments`
   - `POST /api/stories/:story_id/comments`
   - `GET /api/stories/:story_id/comments/:id`
-  - `PATCH /api/stories/:story_id/comments/:id`
+  - `PATCH /api/comments/:id`
   - `DELETE /api/stories/:story_id/comments/:id`
 - From Users
   - `GET /api/users/:user_id/comments`
   - `POST /api/users/:user_id/comments`
   - `GET /api/users/:user_id/comments/:id`
-  - `PATCH /api/users/:user_id/comments/:id`
+  - `PATCH /api/comments/:id`
   - `DELETE /api/users/:user_id/comments/:id`
 
 ### Genres

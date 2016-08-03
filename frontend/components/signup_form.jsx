@@ -8,7 +8,7 @@ const React = require('react'),
 
 const SignupForm = React.createClass({
   getInitialState () {
-    return { username: '', password: '', errors: [] };
+    return { username: '', password: '', verify: '', errors: [] };
   },
 
   componentDidMount () {
@@ -30,29 +30,40 @@ const SignupForm = React.createClass({
 
   handleSubmit (e) {
     e.preventDefault();
-    SessionActions.signUp(this.state);
+    if (this.state.password === this.state.verify) {
+      SessionActions.signUp(this.state);
+    } else {
+      this.setState({ password: '',
+        verify: '',
+        errors: ["Password does not match!"] });
+    }
   },
 
   handleUsernameChange (e) {
     e.preventDefault();
-    this.setState({ username: e.target.value});
+    this.setState({ username: e.target.value });
   },
 
   handlePasswordChange (e) {
     e.preventDefault();
-    this.setState({ password: e.target.value});
+    this.setState({ password: e.target.value });
+  },
+
+  handleVerifyPasswordChange (e) {
+    e.preventDefault();
+    this.setState({ verify: e.target.value });
   },
 
   render () {
     return (
-      <div id="login-form">
+      <div id="login">
 
+        <h2>Sign Up</h2>
         <ul>
           {this.state.errors.map( (error, idx) => {
             return <li key={idx}>{error}</li>;
           })}
         </ul>
-
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'
@@ -68,8 +79,16 @@ const SignupForm = React.createClass({
             placeholder='Password'
             />
           <br />
+          <input
+            type='password'
+            value={this.state.verify}
+            onChange={this.handleVerifyPasswordChange}
+            placeholder='verify password'
+            />
+          <br />
           <input type="submit" value="Sign Up" />
         </form>
+
       </div>
     );
   }

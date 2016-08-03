@@ -95,7 +95,7 @@
 
 * `fetchAllComments`
   0. invoked from `CommentsIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/comments` is called.
+  0. `GET /api/stories/:story_id/comments` is called.
   0. `receiveAllComments` is set as the success callback.
 
 * `createComment`
