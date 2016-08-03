@@ -54,7 +54,6 @@ const App = React.createClass({
 
 let _ensureLoggedIn = (nextState, replace) => {
   if (!SessionStore.isUserLoggedIn()) {
-    debugger
     replace('/login');
   }
 };

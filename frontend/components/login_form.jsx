@@ -43,6 +43,10 @@ const LoginForm = React.createClass({
     this.setState({ password: e.target.value});
   },
 
+  guestLogin () {
+    SessionActions.logIn({ username: 'guest', password: 'password' });
+  },
+
   render () {
     return (
       <div id="login-form">
@@ -64,6 +68,7 @@ const LoginForm = React.createClass({
           <br />
           <input type="submit" value="Log In" />
         </form>
+        <button onClick={this.guestLogin}>Guest Log In</button>
       </div>
     );
   }
