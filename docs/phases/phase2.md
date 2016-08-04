@@ -1,40 +1,40 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days, W1 F 6pm)
+# Phase 2: Flux Architecture and Story CRUD (2 days, W1 F 6pm)
 
 ## Rails
 ### Models
-* Note
+* Story
 
 ### Controllers
-* Api::NotesController (create, destroy, index, show, update)
+* Api::StoriesController (create, destroy, index, show, update)
 
 ### Views
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* stories/index.json.jbuilder
+* stories/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* StoriesIndex
+  - StoriesIndexItem
+* StoryForm
 
 ### Stores
-* Note
+* Story
 
 ### Actions
-* `ApiActions.receiveAllNotes`
-* `ApiActions.receiveSingleNote`
-* `ApiActions.deleteNote`
-* `NoteActions.fetchAllNotes`
-* `NoteActions.fetchSingleNote`
-* `NoteActions.createNote`
-* `NoteActions.editNote`
-* `NoteActions.destroyNote`
+* `ApiActions.receiveAllStories`
+* `ApiActions.receiveSingleStory`
+* `ApiActions.deleteStory`
+* `StoryActions.fetchAllStories`
+* `StoryActions.fetchSingleStory`
+* `StoryActions.createStory`
+* `StoryActions.editStory`
+* `StoryActions.destroyStory`
 
 ### ApiUtil
-* `ApiUtil.fetchAllNotes`
-* `ApiUtil.fetchSingleNote`
-* `ApiUtil.createNote`
-* `ApiUtil.editNote`
-* `ApiUtil.destroyNote`
+* `ApiUtil.fetchAllStories`
+* `ApiUtil.fetchSingleStory`
+* `ApiUtil.createStory`
+* `ApiUtil.editStory`
+* `ApiUtil.destroyStory`
 
 ## Gems/Libraries

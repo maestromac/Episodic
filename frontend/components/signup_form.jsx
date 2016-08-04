@@ -8,7 +8,7 @@ const React = require('react'),
 
 const SignupForm = React.createClass({
   getInitialState () {
-    return { username: '', password: '', verify: '', errors: [] };
+    return { username: '', password: '', penName: '', verify: '', errors: [] };
   },
 
   componentDidMount () {
@@ -54,6 +54,11 @@ const SignupForm = React.createClass({
     this.setState({ verify: e.target.value });
   },
 
+  handlePenNameChange (e) {
+    e.preventDefault();
+    this.setState({ penName: e.target.value });
+  },
+
   render () {
     return (
       <div className="signup-form">
@@ -71,6 +76,15 @@ const SignupForm = React.createClass({
             value={this.state.username}
             onChange={this.handleUsernameChange}
             placeholder='Username'
+            />
+          <br />
+          <input
+            // for pen name, it's almost the same as username
+            className='username'
+            type='text'
+            value={this.state.penName}
+            onChange={this.handlePenNameChange}
+            placeholder='Pen Name'
             />
           <br />
           <input

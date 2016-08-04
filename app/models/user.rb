@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  validates :username, presence: true, uniqueness: true
+  validates :username, :pen_name, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  has_many :stories, foreign_key: :author_id
 
   attr_reader :password
 

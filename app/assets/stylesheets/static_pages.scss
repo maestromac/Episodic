@@ -27,24 +27,75 @@
 
   .button {
     background: #00ab6c;
-    border: 2px solid #00ab6c;
+    border: 2px none #00ab6c;
     border-radius: 4px;
     font-size: 15px;
     margin-bottom: 8px;
     width: 71%;
     color: white;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background: #008856;
   }
 
   .guest {
     background: #002215;
-    border: 2px solid #002215;
+    // border: 2px none #002215;
+  }
+  .guest:hover {
+    background: #000000;
   }
 
 }
 
 .error {
   list-style: inherit;
-  text-align: start;
-  font-size: x-small;
+  text-align: center;
+  font-size: small;
   color: red;
+}
+
+.modal-button {
+  position: fixed;
+  top: 15px;
+  right: 29px;
+  font-size: larger;
+  color: white;
+  background: transparent;
+}
+
+header {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  // box-shadow: 0 0 1px rgba(0,0,0,.15);
+  border-bottom: 1px solid rgba(0,0,0,.09);
+  align-items: center;
+}
+
+nav {
+  list-style: none;
+  display: flex;
+  color: #00ab6c;
+  font-size: 12px;
+  font-weight: 300;
+  ul {
+    display: flex;
+    li {
+      margin-left: 12px;
+    }
+  }
+  button {
+    margin-left: 5px;
+  }
+}
+
+.web-title {
+  font-size: 26px;
+  font-weight: 200;
+  color: #00110a;
+
 }

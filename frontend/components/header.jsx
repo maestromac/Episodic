@@ -48,17 +48,19 @@ const Header = React.createClass({
   render () {
 
     let login = (
-      <button onClick={this._onModalOpen.bind(this, true)}>Log In</button>
+      <a onClick={this._onModalOpen.bind(this, true)}>Log In</a>
     );
-    let signup =
-      (<button onClick={this._onModalOpen.bind(this, false)}>Sign Up</button>
+    let signup = (
+      <a onClick={this._onModalOpen.bind(this, false)}>Sign Up</a>
     );
     let logout = <button onClick={this.logOut}>Log Out</button>;
     let component = (this.state.logIn) ? <LoginForm /> : <SignupForm />;
     let session = (
-      <div>
-        {login} or {signup}
-
+      <nav>
+        <ul>
+          <li>Write a story</li>
+          <li>{login} / {signup}</li>
+        </ul>
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this._onModalClose}
@@ -66,25 +68,33 @@ const Header = React.createClass({
           onAfterOpen={this._toggleOpague}
           >
           {component}
+          <button
+            className="modal-button"
+            onClick={this._onModalClose}>
+            X
+          </button>
         </Modal>
 
-      </div>
+      </nav>
     );
 
     if (SessionStore.isUserLoggedIn()) {
       session = (
-        <div>
-          Greeting, {SessionStore.currentUser()}! {logout}
-        </div>
+        <nav>
+          <ul>
+            <li>Write a story</li>
+            <li>{SessionStore.currentUser()}!{logout}</li>
+          </ul>
+        </nav>
       );
     }
 
     return (
-      <div>
+      <header>
+        <h1 className="web-title">Episodic</h1>
         {session}
-        <h2>Episodic</h2>
 
-      </div>
+      </header>
     );
   }
 

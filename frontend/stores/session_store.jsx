@@ -19,7 +19,7 @@ let _logout = () => {
 };
 
 SessionStore.currentUser = () => {
-    return _currentUser.username;
+  return _currentUser.pen_name;
 };
 
 SessionStore.isUserLoggedIn = () => {

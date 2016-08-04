@@ -3,8 +3,11 @@ module.exports = {
     $.ajax({
       url: 'api/users',
       method: 'POST',
-      data: { user: user },
-      // data: { user: { username: "admin", password: "password"} },
+      data: { user: {
+        username: user.username,
+        pen_name: user.penName,
+        password: user.password
+      } },
       success: (resp) => {
         successCb(resp);
       },
@@ -18,8 +21,7 @@ module.exports = {
     $.ajax({
       url: 'api/session',
       method: 'POST',
-      data: { user: user },
-      // data: { user: { username: "admin", password: "password"} },
+      data: { user: { username: user.username, password: user.password} },
       success: (resp) => {
         successCb(resp);
       },
