@@ -22,8 +22,9 @@ const App = React.createClass({
     return (
       <div>
         <Header />
-        <StoriesIndex />
-        {this.props.children}
+        <div className="center">
+          {this.props.children}
+        </div>
       </div>
     );
   }
@@ -40,6 +41,7 @@ let _ensureLoggedIn = (nextState, replace) => {
 
 const routes = (
   <Route path="/" component={App}>
+    <IndexRoute component={StoriesIndex} />
     <Route path="/stories/:id" component={StoriesIndex} />
   </Route>
 );

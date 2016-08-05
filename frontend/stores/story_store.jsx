@@ -12,7 +12,8 @@ StoryStore.all = () => {
 };
 
 StoryStore.find = (id) => {
-  return Object.assign({}, _stories[id]);
+  // return Object.assign({}, _stories[id]);
+  return _stories[id];
 };
 
 let resetAllStories = (stories) => {

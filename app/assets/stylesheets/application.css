@@ -38,9 +38,18 @@ button, a {
 }
 
 main {
-  max-width: 1000px!important;
-  margin: 0 auto;
+}
 
+.center {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.main-content {
+}
+
+body {
+  background: #FAFAFA;
 }
 
 .cf:after {

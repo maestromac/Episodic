@@ -90,11 +90,25 @@ const Header = React.createClass({
     }
 
     return (
-      <header>
-        <h1 className="web-title">Episodic</h1>
-        {session}
+      <div className="meta-bar">
+        <header className="center">
+          <div className="meta-bar-upper">
+            <h1 className="web-title">Episodic</h1>
+            {session}
+          </div>
 
-      </header>
+          <div className="meta-bar-lower">
+            <ul>
+              <li>Editor's Pick</li>
+              <li>Popular</li>
+              <li>Feed</li>
+              <li>Horror</li>
+              <li>Fiction</li>
+            </ul>
+          </div>
+
+        </header>
+      </div>
     );
   }
 

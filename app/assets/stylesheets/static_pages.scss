@@ -69,23 +69,38 @@
 
 header {
   margin: 20px;
-  display: flex;
-  justify-content: space-between;
   // box-shadow: 0 0 1px rgba(0,0,0,.15);
-  border-bottom: 1px solid rgba(0,0,0,.09);
   align-items: center;
+
+  .meta-bar-upper {
+    justify-content: space-between;
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,.09);
+  }
+  .meta-bar-lower > ul {
+    font-size: 15px;
+    font-weight: 100;
+    display: flex;
+
+    li {
+      margin: 12px 36px 8px 0px;
+    }
+  }
+
+
 }
 
 nav {
   list-style: none;
   display: flex;
   color: #00ab6c;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 300;
   ul {
     display: flex;
     li {
       margin-left: 12px;
+      margin-top: 11px;
     }
   }
   button {
@@ -94,7 +109,7 @@ nav {
 }
 
 .web-title {
-  font-size: 26px;
+  font-size: 35px;
   font-weight: 200;
   color: #00110a;
 
@@ -108,4 +123,10 @@ nav {
     margin-left: 25px;
     margin-right: 25px;
     font-size: 14px;
+}
+
+.meta-bar {
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,.09);
+  padding-top: 27px;
 }
