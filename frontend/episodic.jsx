@@ -14,12 +14,15 @@ const React = require('react'),
 // dev test
 // window.SessionApiUtil = require('./util/session_api_util.jsx');
 // window.SessionActions = require('./actions/session_actions');
+// window.StoryActions = require('./actions/story_actions');
+// window.StoryStore = require('./stores/story_store');
 
 const App = React.createClass({
   render () {
     return (
       <div>
         <Header />
+        <StoriesIndex />
         {this.props.children}
       </div>
     );
@@ -33,14 +36,11 @@ let _ensureLoggedIn = (nextState, replace) => {
 };
 // <Route path="login" component={LoginForm} />
 // <Route path="signup" component={SignupForm} />
+// onEnter={ _ensureLoggedIn }
 
 const routes = (
   <Route path="/" component={App}>
-    <Route
-      path="stories"
-      component={StoriesIndex}
-      onEnter={ _ensureLoggedIn }
-      />
+    <Route path="/stories/:id" component={StoriesIndex} />
   </Route>
 );
 

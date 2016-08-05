@@ -30,11 +30,11 @@
 * `StoryActions.editStory`
 * `StoryActions.destroyStory`
 
-### ApiUtil
-* `ApiUtil.fetchAllStories`
-* `ApiUtil.fetchSingleStory`
-* `ApiUtil.createStory`
-* `ApiUtil.editStory`
-* `ApiUtil.destroyStory`
+### StoryApiUtil
+* `StoryApiUtil.fetchAllStories`
+* `StoryApiUtil.fetchSingleStory`
+* `StoryApiUtil.createStory`
+* `StoryApiUtil.editStory`
+* `StoryApiUtil.destroyStory`
 
 ## Gems/Libraries

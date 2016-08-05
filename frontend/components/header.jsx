@@ -83,7 +83,7 @@ const Header = React.createClass({
         <nav>
           <ul>
             <li>Write a story</li>
-            <li>{SessionStore.currentUser()}!{logout}</li>
+            <li>{SessionStore.currentUser()} {logout}</li>
           </ul>
         </nav>
       );
