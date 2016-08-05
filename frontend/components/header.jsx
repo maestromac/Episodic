@@ -25,6 +25,7 @@ const Header = React.createClass({
   },
 
   componentDidMount () {
+    debugger
     this.listener = SessionStore.addListener(this._onChange);
   },
 
@@ -62,7 +63,7 @@ const Header = React.createClass({
     let session = (
       <nav>
         <ul>
-          <li>Write a story</li>
+          <li><Link to={'/new-story'}>Write a story</Link></li>
           <li>{login} / {signup}</li>
         </ul>
         <Modal
@@ -86,7 +87,7 @@ const Header = React.createClass({
       session = (
         <nav>
           <ul>
-            <li>Write a story</li>
+            <li><Link to={'/new-story'}>Write a story</Link></li>
             <li>{SessionStore.currentUser()} {logout}</li>
           </ul>
         </nav>

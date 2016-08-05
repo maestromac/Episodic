@@ -14,6 +14,7 @@
   0_users
   jdsalingerGSE
   jdsalingerOAWWKY
+  jdsalingerAGIK
   skingCOTK
   9_stories
 }.each do |part|
