@@ -1,1 +1,1 @@
-json.partial! '/api/stories/story', bench: @story
+json.partial! '/api/stories/story', story: @story

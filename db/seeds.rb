@@ -14,6 +14,7 @@
   0_users
   jdsalingerGSE
   jdsalingerOAWWKY
+  skingCOTK
   9_stories
 }.each do |part|
   require File.expand_path(File.dirname(__FILE__))+"/seeds/#{part}.rb"

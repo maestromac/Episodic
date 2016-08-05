@@ -12,8 +12,12 @@ const StoriesIndex = React.createClass({
   },
 
   componentDidMount () {
+    this.listener = StoryStore.addListener(this._onChange);
     StoryActions.fetchAllStories();
-    StoryStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount () {
+    this.listener.remove();
   },
 
   _onChange () {
@@ -27,10 +31,10 @@ const StoriesIndex = React.createClass({
     }
 
     return (
-      <ul className='stories-index'>
+      <ul className='center'>
         {
           storiesArr.map( (story) => {
-            return <StoriesIndexItem story={story} key= {story.id}/>;
+            return <StoriesIndexItem story={story} key={story.id}/>;
           })
         }
       </ul>

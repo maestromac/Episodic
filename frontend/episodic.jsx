@@ -8,7 +8,8 @@ const React = require('react'),
       LoginForm = require('./components/login_form'),
       SignupForm = require('./components/signup_form'),
       SessionActions = require('./actions/session_actions'),
-      StoriesIndex = require('./components/stories_index');
+      MainIndex = require('./components/main_index'),
+      StoryView = require('./components/story_view');
 
 
 // dev test
@@ -22,9 +23,7 @@ const App = React.createClass({
     return (
       <div>
         <Header />
-        <div className="center">
-          {this.props.children}
-        </div>
+        {this.props.children}
       </div>
     );
   }
@@ -41,8 +40,8 @@ let _ensureLoggedIn = (nextState, replace) => {
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={StoriesIndex} />
-    <Route path="/stories/:id" component={StoriesIndex} />
+    <IndexRoute component={MainIndex} />
+    <Route path="/stories/:id" component={StoryView} />
   </Route>
 );
 

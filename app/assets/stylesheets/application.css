@@ -14,7 +14,7 @@
  *= require_self
  */
 
- html, body, section, article, h1, h2, p, button, ul, li {
+ html, body, section, article, h1, h2, p, button, ul, li, a {
    margin: 0;
    border: 0;
    padding: 0;
@@ -45,11 +45,17 @@ main {
   margin: 0 auto;
 }
 
-.main-content {
+.story-plate {
+  margin: 0 auto;
+  background: #FAFAFA;
 }
 
-body {
+.main-plate {
+  padding-top: 40px;
   background: #FAFAFA;
+}
+
+.main-content {
 }
 
 .cf:after {

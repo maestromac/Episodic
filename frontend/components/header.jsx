@@ -28,6 +28,10 @@ const Header = React.createClass({
     this.listener = SessionStore.addListener(this._onChange);
   },
 
+  componentWillUnmount() {
+    this.listener.remove();
+  },
+
   _onChange () {
     if (!SessionStore.isUserLoggedIn()) {
       hashHistory.push('/');
@@ -93,7 +97,7 @@ const Header = React.createClass({
       <div className="meta-bar">
         <header className="center">
           <div className="meta-bar-upper">
-            <h1 className="web-title">Episodic</h1>
+            <Link to={'/'}><h1 className="web-title">Episodic</h1></Link>
             {session}
           </div>
 

@@ -15,6 +15,7 @@
 ### Views (React Components)
 * StoriesIndex
   - StoriesIndexItem
+* StoryView
 * StoryForm
 
 ### Stores
