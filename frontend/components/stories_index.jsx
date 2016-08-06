@@ -30,6 +30,17 @@ const StoriesIndex = React.createClass({
       storiesArr.push(this.state.stories[id]);
     }
 
+    storiesArr = storiesArr.sort( (a, b) => {
+      if ( a.created_at > b.created_at ) {
+        return 1;
+      } else if ( a.created_at < b.created_at ) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    storiesArr = storiesArr.reverse();
+
     return (
       <ul className='center'>
         {

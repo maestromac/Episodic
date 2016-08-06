@@ -19,7 +19,8 @@ let _logout = () => {
 };
 
 SessionStore.currentUser = () => {
-  return _currentUser.pen_name;
+  return Object.assign({}, _currentUser);
+  // return _currentUser.pen_name;
 };
 
 SessionStore.isUserLoggedIn = () => {

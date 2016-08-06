@@ -5,6 +5,7 @@ const React = require('react'),
 const StoryEdit = React.createClass({
   getInitialState () {
     // will this be a problem?
+    this.story = StoryActions.fetchSingleStory(this.props.prams.id);
     return {
       authorId: SessionStore.currentUser().id,
       title: "",

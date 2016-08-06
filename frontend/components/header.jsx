@@ -1,4 +1,5 @@
 import { Router, Route, IndexRoute, Link, hashHistory} from 'react-router';
+import Avatar from 'react-avatar';
 
 const React = require('react'),
       ReactDOM = require('react-dom'),
@@ -25,7 +26,6 @@ const Header = React.createClass({
   },
 
   componentDidMount () {
-    debugger
     this.listener = SessionStore.addListener(this._onChange);
   },
 
@@ -82,13 +82,19 @@ const Header = React.createClass({
 
       </nav>
     );
+    // <img className="user-avatar"
+    // src={SessionStore.currentUser().avatar}/>
 
     if (SessionStore.isUserLoggedIn()) {
       session = (
         <nav>
           <ul>
             <li><Link to={'/new-story'}>Write a story</Link></li>
-            <li>{SessionStore.currentUser()} {logout}</li>
+            <li>
+              {SessionStore.currentUser().pen_name}
+              <Avatar size="33" round="true" src={SessionStore.currentUser().avatar} />
+              {logout}
+            </li>
           </ul>
         </nav>
       );
