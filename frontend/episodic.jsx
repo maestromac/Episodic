@@ -10,7 +10,8 @@ const React = require('react'),
       SessionActions = require('./actions/session_actions'),
       MainIndex = require('./components/main_index'),
       StoryView = require('./components/story_view'),
-      StoryForm = require('./components/story_form');
+      StoryForm = require('./components/story_form'),
+      UserView = require('./components/user_view');
 
 
 // dev test
@@ -44,6 +45,7 @@ const routes = (
     <IndexRoute component={MainIndex} />
     <Route path="/stories/:id" component={StoryView} />
     <Route path="/new-story" component={StoryForm} />
+    <Route path="/user/:id" component={UserView} />
   </Route>
 );
 
