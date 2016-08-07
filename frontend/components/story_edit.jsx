@@ -7,7 +7,7 @@ const StoryEdit = React.createClass({
     // will this be a problem?
     this.story = StoryActions.fetchSingleStory(this.props.prams.id);
     return {
-      authorId: SessionStore.currentUser().id,
+      author_id: SessionStore.currentUser().id,
       title: "",
       body: ""
     };

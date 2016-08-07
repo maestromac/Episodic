@@ -1,5 +1,5 @@
 class Api::StoriesController < ApplicationController
-  before_action :require_logged_in, only: [:create, :update, :destroy]
+  before_action :require_log_in, only: [:create, :update, :destroy]
   before_action :must_be_author, only: [:update, :destroy]
 
   def create

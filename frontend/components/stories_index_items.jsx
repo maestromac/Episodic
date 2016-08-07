@@ -24,7 +24,7 @@ const StoriesIndexItem = React.createClass({
               <ul>
                 <li className="medium-color">{story.author}</li>
                 <li className="publish-date">
-                  {date} • {story.readTime} min read  
+                  {date} • {story.readTime} min read
                 </li>
               </ul>
           </div>
@@ -32,7 +32,7 @@ const StoriesIndexItem = React.createClass({
           <Link to={`/stories/${story.id}`}
                 className="index-list-title">
                 {story.title}
-              </Link >
+              </Link>
           <br />
           <p className='withprewrap'>
             {story.body}

@@ -23,7 +23,7 @@ const App = React.createClass({
   render () {
     return (
       <div>
-        <Header />
+        <Header path={this.props.location.pathname}/>
         {this.props.children}
       </div>
     );

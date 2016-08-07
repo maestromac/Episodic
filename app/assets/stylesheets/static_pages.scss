@@ -79,9 +79,9 @@ header {
   .meta-bar-upper {
     justify-content: space-between;
     display: flex;
-    border-bottom: 1px solid rgba(0,0,0,.09);
   }
   .meta-bar-lower > ul {
+    border-top: 1px solid rgba(0,0,0,.09);
     font-size: 15px;
     font-weight: 100;
     display: flex;
@@ -98,13 +98,13 @@ nav {
   list-style: none;
   display: flex;
   color: #00ab6c;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   ul {
     display: flex;
+    align-items: center;
     li {
       margin-left: 12px;
-      margin-top: 11px;
     }
   }
   button {
@@ -114,6 +114,13 @@ nav {
 
 .web-title {
   font-size: 35px;
+  font-weight: 200;
+  color: #00110a;
+}
+
+.web-title::first-letter {
+  font-family: monospace;
+  font-size: 50px;
   font-weight: 200;
   color: #00110a;
 }
@@ -149,6 +156,71 @@ p {
   border-bottom: 1px solid rgba(0,0,0,.09);
   padding-top: 27px;
 }
+
+
+
+.rock-solid {
+  position: relative;
+  ul {
+    // position: absolute;
+  }
+}
+.pop-over {
+  display: block;
+  position: absolute;
+  width: 230px;
+  border: 1px solid #eee;
+  background: white;
+  border-radius: 3%;
+  right: -100px;
+  top: 9px;
+  padding: 8px 0px;
+  color: #6A6A6A;
+
+  li {
+    margin: 0;
+    padding: 7px 25px;
+  }
+  li:nth-child(5) {
+    border-bottom: 1px solid rgba(0,0,0,.09);
+
+  }
+  li:last-child {
+    button {
+      margin: 0;
+    }
+  }
+}
+
+.pop-over-hidden {
+  display: none;
+}
+
+
+.triangle-up-gray {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 12px solid #eee;
+  position: absolute;
+  right: 100px;
+  top: -12px;
+}
+
+.triangle-up-white {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 12px solid white;
+  position: absolute;
+  right: 100px;
+  top: -10px;
+}
+
+
+
 
 .whole-story {
   padding-top: 40px;

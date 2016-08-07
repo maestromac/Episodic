@@ -13,7 +13,7 @@ const React = require('react'),
 
 const Header = React.createClass({
   getInitialState() {
-    return { modalOpen: false, logIn: false };
+    return { modalOpen: false, logIn: false, options: "pop-over-hidden" };
   },
 
   _onModalOpen (boolean) {
@@ -50,8 +50,12 @@ const Header = React.createClass({
     ModalStyle.content.opacity = 0;
   },
 
-  render () {
+  handleOptionClick () {
+    let change = this.state.options === "pop-over-hidden" ? "pop-over" : "pop-over-hidden";
+    this.setState({ options: change });
+  },
 
+  render () {
     let login = (
       <a onClick={this._onModalOpen.bind(this, true)}>Log In</a>
     );
@@ -82,21 +86,49 @@ const Header = React.createClass({
 
       </nav>
     );
+    let metabarLower = (
+      <ul>
+        <li>Editor's Pick</li>
+        <li>Popular</li>
+        <li>Feed</li>
+        <li>Horror</li>
+        <li>Fiction</li>
+      </ul>
+    );
+
+    if (this.props.path.indexOf("stories") === 1) {
+      metabarLower = "";
+    }
 
     if (SessionStore.isUserLoggedIn()) {
       session = (
         <nav>
           <ul>
             <li><Link to={'/new-story'}>Write a story</Link></li>
-            <li>
-              {SessionStore.currentUser().pen_name}
-              <Avatar
-                key={SessionStore.currentUser().id}
-                size={33}
-                round={true}
-                src={SessionStore.currentUser().avatar} />
-              {logout}
-            </li>
+            <li>{SessionStore.currentUser().pen_name}</li>
+
+
+              <li className="meta-bar-avatar" onClick={this.handleOptionClick}>
+                  <Avatar
+
+                    key={SessionStore.currentUser().id}
+                    size={33}
+                    round={true}
+                    src={SessionStore.currentUser().avatar} />
+                    <div className="rock-solid" >
+                      <ul className={this.state.options}>
+                        <div className="triangle-up-gray"/>
+                        <div className="triangle-up-white"/>
+                        <li>New Story</li>
+                        <li>Draft</li>
+                        <li>Stories</li>
+                        <li>Profile</li>
+                        <li>{logout}</li>
+                      </ul>
+                    </div>
+              </li>
+
+
           </ul>
         </nav>
       );
@@ -105,19 +137,14 @@ const Header = React.createClass({
     return (
       <div className="meta-bar">
         <header className="center">
+
           <div className="meta-bar-upper">
             <Link to={'/'}><h1 className="web-title">Episodic</h1></Link>
             {session}
           </div>
 
           <div className="meta-bar-lower">
-            <ul>
-              <li>Editor's Pick</li>
-              <li>Popular</li>
-              <li>Feed</li>
-              <li>Horror</li>
-              <li>Fiction</li>
-            </ul>
+            {metabarLower}
           </div>
 
         </header>
