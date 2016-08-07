@@ -1,3 +1,17 @@
 // Place all the styles related to the api/stories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.stories-index-author {
+  display: flex;
+
+  ul {
+    padding-left: 12px;
+  }
+}
+
+.publish-date {
+  font-size: 12px;
+  color: #ACACAC;
+}

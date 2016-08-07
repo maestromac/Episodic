@@ -20,7 +20,7 @@ node_modules/
 log/
 tmp/
 notes.txt
-/assets/images/
+app/assets/images/
 
 # Ignore application configuration
 /config/application.yml

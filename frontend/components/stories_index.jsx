@@ -5,7 +5,6 @@ const React = require('react'),
       StoriesIndexItem = require('./stories_index_items'),
       hashHistory = require('react-router').hashHistory;
 
-
 const StoriesIndex = React.createClass({
   getInitialState () {
     return { stories: {} };

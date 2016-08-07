@@ -82,8 +82,6 @@ const Header = React.createClass({
 
       </nav>
     );
-    // <img className="user-avatar"
-    // src={SessionStore.currentUser().avatar}/>
 
     if (SessionStore.isUserLoggedIn()) {
       session = (
@@ -92,7 +90,11 @@ const Header = React.createClass({
             <li><Link to={'/new-story'}>Write a story</Link></li>
             <li>
               {SessionStore.currentUser().pen_name}
-              <Avatar size="33" round="true" src={SessionStore.currentUser().avatar} />
+              <Avatar
+                key={SessionStore.currentUser().id}
+                size={33}
+                round={true}
+                src={SessionStore.currentUser().avatar} />
               {logout}
             </li>
           </ul>
