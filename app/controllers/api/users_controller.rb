@@ -3,7 +3,8 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      render json: @user
+      # render json: @user
+      render :show
     else
       render json: @user.errors.full_messages, status: 401
     end
@@ -12,7 +13,7 @@ class Api::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user
-      render json: @user
+      render :show
     else
       render json: ["Could not locate user"], status: 404
     end

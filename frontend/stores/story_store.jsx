@@ -30,7 +30,7 @@ let resetSingleStory = (story) => {
   StoryStore.__emitChange();
 };
 
-StoryStore.__onDispatch = function(payload) {
+StoryStore.__onDispatch = (payload) => {
   switch(payload.actionType) {
     case StoryConstants.STORIES_RECEIVED:
       resetAllStories(payload.stories);

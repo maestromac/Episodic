@@ -8,7 +8,6 @@ const SessionStore = new Store(AppDispatcher);
 let _currentUser = {};
 
 let _login = (user) => {
-  _currentUser = {};
   _currentUser = user;
   SessionStore.__emitChange();
 };

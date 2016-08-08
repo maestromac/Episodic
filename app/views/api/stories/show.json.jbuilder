@@ -1,1 +1,1 @@
-json.partial! '/api/stories/story', story: @story
+json.partial! 'story', story: @story

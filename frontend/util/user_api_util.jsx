@@ -1,4 +1,4 @@
-module.expors = {
+module.exports = {
   fetchUser (id, successCb, errorCb) {
     $.ajax({
       url: 'api/users/' + id,

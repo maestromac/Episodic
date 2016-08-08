@@ -110,7 +110,6 @@ const Header = React.createClass({
 
               <li className="meta-bar-avatar" onClick={this.handleOptionClick}>
                   <Avatar
-
                     key={SessionStore.currentUser().id}
                     size={33}
                     round={true}

@@ -39,7 +39,6 @@ const StoriesIndex = React.createClass({
       }
     });
     storiesArr = storiesArr.reverse();
-
     return (
       <ul className='center'>
         {
