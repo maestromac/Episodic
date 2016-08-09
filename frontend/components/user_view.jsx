@@ -34,13 +34,16 @@ const UserView = React.createClass({
 
 
   render () {
+
     let user = this.state.user;
     let content = (<div><h2>loading</h2></div>);
+
     if (user) {
       content = (
-        <div>
+        <div className="user-view-plate">
           <Avatar
-            size={33}
+            className="use-view-plate-avatar"
+            size={100}
             round={true}
             src={user.avatar} />
           <ul className="user-view">
@@ -50,6 +53,7 @@ const UserView = React.createClass({
         </div>
       );
     }
+
     return (
       <div className="center">
         {content}
