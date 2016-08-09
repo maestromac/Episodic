@@ -101,7 +101,7 @@ const Header = React.createClass({
       </ul>
     );
 
-    if (this.props.path.indexOf("stories") === 1) {
+    if (this.props.path !== "/") {
       metabarLower = "";
     }
 
@@ -110,7 +110,11 @@ const Header = React.createClass({
         <nav>
           <ul>
             <li><Link to={'/new-story'}>Write a story</Link></li>
-            <li>{SessionStore.currentUser().pen_name}</li>
+            <li>
+              <Link to={`/user/${SessionStore.currentUser().id}`}>
+                {SessionStore.currentUser().pen_name}
+              </Link>
+            </li>
 
 
               <li className="meta-bar-avatar" onClick={this.handleOptionClick}>
@@ -119,16 +123,36 @@ const Header = React.createClass({
                     size={33}
                     round={true}
                     src={SessionStore.currentUser().avatar} />
-                    <div className="rock-solid" >
-                      <ul className={this.state.options}>
-                        <div className="triangle-up-gray"/>
-                        <div className="triangle-up-white"/>
-                        <li>New Story</li>
-                        <li>Draft</li>
-                        <li>Stories</li>
-                        <li>Profile</li>
-                        <li>{logout}</li>
-                      </ul>
+
+                    <div className="rock-solid">
+                        <span className={this.state.options}
+                          onClick={this.handleOptionClick}/>
+                        <ul className={this.state.options}>
+                          <div className="triangle-up-gray"/>
+                          <div className="triangle-up-white"/>
+
+                          <li>
+        <Link to={`/new-story`}>New Story</Link>
+                          </li>
+
+                          <li>
+        <Link to={`/user/${SessionStore.currentUser().id}/drafts`}>Drafts</Link>
+                          </li>
+
+                          <li>
+        <Link to={`/user/${SessionStore.currentUser().id}/stories`}>Stories</Link>
+                          </li>
+
+                          <li>
+        <Link to={`/user/${SessionStore.currentUser().id}`}>Profile</Link>
+                          </li>
+
+                          <li>
+                      {logout}
+                          </li>
+
+                        </ul>
+
                     </div>
               </li>
 

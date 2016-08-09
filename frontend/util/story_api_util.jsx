@@ -12,6 +12,19 @@ module.exports = {
     });
   },
 
+  fetchAllStoriesByParticularAuthor (id, successCb, errorCb) {
+    $.ajax({
+      url: `/api/users/${id}/stories`,
+      method: 'GET',
+      success: (resp) => {
+        successCb(resp);
+      },
+      error: (resp) => {
+        errorCb(resp);
+      }
+    });
+  },
+
   fetchSingleStory (id, successCb, errorCb) {
     $.ajax({
       url: 'api/stories/' + id,

@@ -6,7 +6,6 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      #is this correct?
       render :show
     else
       render json: @comment.errors.full_messages
@@ -15,7 +14,11 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    @comments = Comment.where(story_id: params[:story_id])
+    if params[:story_id]
+      @comments = Comment.where(story_id: params[:story_id])
+    elsif params[:user_id]
+      @comments = Comment.where(commenter_id: params[:user_id])
+    end
     render :index
   end
 

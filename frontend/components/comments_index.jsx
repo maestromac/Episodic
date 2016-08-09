@@ -10,7 +10,12 @@ const CommentsIndex = React.createClass({
 
   componentDidMount () {
     this.listener = CommentStore.addListener(this._onChange);
-    CommentActions.fetchAllStoryComments(this.props.storyId);
+    if (this.props.storyId) {
+      CommentActions.fetchAllStoryComments(this.props.storyId);
+    } else {
+      // authorId was receieved.
+      CommentActions.fetchAllUserComments(this.props.authorId);
+    }
   },
 
   componentWillUnmount () {
@@ -22,7 +27,6 @@ const CommentsIndex = React.createClass({
   },
 
   render () {
-
     let comments = this.state.comments;
 
     comments.sort( (a, b) => {
@@ -38,8 +42,14 @@ const CommentsIndex = React.createClass({
     return (
       <ul className= 'center'>
         {
-          comments.map( (comment) => {
-            return <CommentsIndexItem comment={comment} key={comment.id} />;
+          comments.map( (comment, idx) => {
+            return <CommentsIndexItem
+                      comment={comment}
+                      key={idx}
+                      path={
+                        this.props.location === undefined ?
+                        "" : this.props.location.pathname}
+                        />;
           })
         }
       </ul>

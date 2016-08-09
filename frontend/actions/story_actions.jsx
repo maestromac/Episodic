@@ -7,6 +7,10 @@ const StoryActions = {
     StoryApiUtil.fetchAllStories(this.receiveAllStories);
   },
 
+  fetchAllStoriesByParticularAuthor (id) {
+    StoryApiUtil.fetchAllStoriesByParticularAuthor(id, this.receiveAllStories);
+  },
+
   fetchSingleStory (id) {
     StoryApiUtil.fetchSingleStory(id, this.receiveSingleStory);
   },

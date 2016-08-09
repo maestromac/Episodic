@@ -1,7 +1,10 @@
+import { Link, hashHistory} from 'react-router';
+
 const React = require('react'),
       SessionStore = require('../stores/session_store'),
       StoryActions = require('../actions/story_actions'),
-      MediumEditor = require('medium-editor');
+      MediumEditor = require('medium-editor'),
+      StoryStore = require('../stores/story_store');
 
 const StoryForm = React.createClass({
   getInitialState () {
@@ -12,7 +15,23 @@ const StoryForm = React.createClass({
     };
   },
 
-  handleSubmit () {
+  componentDidMount () {
+    this.listener = StoryStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount () {
+    this.listener.remove();
+  },
+
+  _onChange () {
+    let latestStoryId = StoryStore.latestStory();
+    if ( latestStoryId ) {
+      hashHistory.push(`/stories/${latestStoryId}`);
+    }
+  },
+
+  handleSubmit (e) {
+    e.preventDefault();
     StoryActions.createStory(this.state);
   },
 
@@ -48,7 +67,7 @@ const StoryForm = React.createClass({
               placeholder="Tell a story..."
               />
             <br />
-            <button>Publish</button>
+            <button className="medium-color">Publish</button>
           </form>
 
         </div>

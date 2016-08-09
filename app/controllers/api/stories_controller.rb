@@ -13,10 +13,14 @@ class Api::StoriesController < ApplicationController
   end
 
   def index
-    @stories = Story.all
+    if params[:user_id]
+      @stories = Story.where(author_id: params[:user_id])
+    else
+      @stories = Story.all
+    end
+
     render :index
   end
-
   def show
     @story = Story.find(params[:id])
     render :show

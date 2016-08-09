@@ -12,7 +12,11 @@ const StoriesIndex = React.createClass({
 
   componentDidMount () {
     this.listener = StoryStore.addListener(this._onChange);
-    StoryActions.fetchAllStories();
+    if (this.props.authorId) {
+      StoryActions.fetchAllStoriesByParticularAuthor(this.props.authorId);
+    } else {
+      StoryActions.fetchAllStories();
+    }
   },
 
   componentWillUnmount () {
@@ -39,8 +43,8 @@ const StoriesIndex = React.createClass({
     return (
       <ul className='center'>
         {
-          stories.map( (story) => {
-            return <StoriesIndexItem story={story} key={story.id}/>;
+          stories.map( (story, idx) => {
+            return <StoriesIndexItem story={story} key={idx}/>;
           })
         }
       </ul>

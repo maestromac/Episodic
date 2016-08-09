@@ -7,6 +7,10 @@ const CommentActions = {
     CommentApiUtil.fetchAllStoryComments(storyId, this.receiveAllComments);
   },
 
+  fetchAllUserComments (userId) {
+    CommentApiUtil.fetchAllUserComments(userId, this.receiveAllComments);
+  },
+
   fetchSingleComment (id) {
     CommentApiUtil.fetchSingleComment(id, this.receiveSingleComment);
   },

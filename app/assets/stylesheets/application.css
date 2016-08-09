@@ -56,9 +56,10 @@ main {
   background: #FAFAFA;
 }
 
-.comment-plate {
+.comments-plate {
   margin: 0 auto;
   background: #FAFAFA;
+  padding: 15px
 }
 
 .main-plate {

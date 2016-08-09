@@ -9,11 +9,22 @@ const React = require('react'),
 
 const CommentsIndexItem = React.createClass({
   render () {
-
     let comment = this.props.comment;
     let date = new Date(comment.created_at).toDateString();
     date = date.split(" ").splice(1, 2).join(" ");
-
+    let originalPost = '';
+    if (this.props.path.indexOf("user") !== -1 ) {
+      originalPost = (
+        <Link to={`/stories/${comment.story_id}`}>
+          <div className="comment-to-story-reference">
+            <ul>
+              <li>{comment.story_title}</li>
+              <li>{comment.story_author}</li>
+            </ul>
+          </div>
+        </Link>
+      );
+    }
     return (
       <div className="comments-index-item">
         <div className="comments-index-item-content">
@@ -40,6 +51,8 @@ const CommentsIndexItem = React.createClass({
           </div>
 
           <br />
+
+          {originalPost}
 
           <p className='withprewrap'>
             {comment.body}

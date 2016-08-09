@@ -67,7 +67,7 @@ const StoryView = React.createClass({
           </div>
         </div>
 
-        <div className="comment-plate">
+        <div className="comments-plate">
           <CommentForm storyId={this.id}/>
           <br/>
           <CommentsIndex storyId={this.id} />

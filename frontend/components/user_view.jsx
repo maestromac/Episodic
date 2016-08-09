@@ -5,13 +5,14 @@ const React = require('react'),
       SessionStore = require('../stores/session_store'),
       SessionActions = require('../actions/session_actions'),
       UserActions = require('../actions/user_actions'),
-      UserStore = require('../stores/user_store');
+      UserStore = require('../stores/user_store'),
+      StoriesIndex = require('./stories_index');
 
 
 const UserView = React.createClass({
   getInitialState () {
     this.id = parseInt(this.props.params.id);
-    return { user: undefined };
+    return { user: UserActions.fetchUser(this.id) };
   },
 
   componentDidMount () {
@@ -32,6 +33,13 @@ const UserView = React.createClass({
     this.listener.remove();
   },
 
+  matchLinkWithURL (category) {
+    if (this.props.location.pathname.indexOf(category.toLowerCase()) !== -1) {
+      return "user-view-links-active";
+    } else {
+      return "";
+    }
+  },
 
   render () {
 
@@ -40,23 +48,61 @@ const UserView = React.createClass({
 
     if (user) {
       content = (
-        <div className="user-view-plate">
-          <Avatar
-            className="use-view-plate-avatar"
-            size={100}
-            round={true}
-            src={user.avatar} />
-          <ul className="user-view">
-            <li>{user.pen_name}</li>
-            <li>{user.description}</li>
-          </ul>
+        <div>
+          <div className="user-view-plate">
+            <div className="center">
+              <div className="user-view">
+
+                <div className="user-view-profile">
+                  <ul>
+                    <h1>{user.pen_name}</h1>
+                    <li>{user.description}</li>
+                  </ul>
+
+                  <Avatar
+                  className="use-view-plate-avatar"
+                  size={100}
+                  round={true}
+                  src={user.avatar} />
+                </div>
+
+
+              </div>
+              <div>
+                <ul className="user-view-links">
+
+                  <li className={this.matchLinkWithURL("stories")}>
+                    <Link to={`/user/${user.id}/stories`}>Stories</Link>
+                  </li>
+
+                  <li className={this.matchLinkWithURL("comments")}>
+                    <Link to={`/user/${user.id}/comments`}>Comments</Link>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="user-view-plate-published">
+            {
+              React.Children.map(this.props.children,
+               (child) => React.cloneElement(child, {
+                 authorId: user.id
+               })
+              )
+            }
+          </div>
+
         </div>
       );
     }
 
     return (
-      <div className="center">
+      <div>
+
         {content}
+
       </div>
     );
   }

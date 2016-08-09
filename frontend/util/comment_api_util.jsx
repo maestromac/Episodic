@@ -12,6 +12,19 @@ module.exports = {
     });
   },
 
+  fetchAllUserComments (userId, successCb, errorCb) {
+    $.ajax({
+      url: `api/users/${userId}/comments`,
+      method: 'GET',
+      success: (resp) => {
+        successCb(resp);
+      },
+      error: (resp) => {
+        errorCb(resp);
+      }
+    });
+  },
+
   fetchSingleComment (id, successCb, errorCb) {
     $.ajax({
       url: 'api/comments/' + id,

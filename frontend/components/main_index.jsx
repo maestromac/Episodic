@@ -11,7 +11,7 @@ const MainIndex = React.createClass({
   render () {
     return (
       <div className="main-plate">
-        <StoriesIndex />
+        <StoriesIndex authorId={this.props.authorId} />
       </div>
     );
   }

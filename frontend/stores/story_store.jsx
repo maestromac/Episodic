@@ -3,6 +3,7 @@ const Store = require('flux/utils').Store,
       AppDispatcher = require('../dispatcher/dispatcher');
 
 let _stories = {};
+let _latestStory = {};
 
 const StoryStore = new Store(AppDispatcher);
 // window.StoryStore = StoryStore;
@@ -15,6 +16,12 @@ StoryStore.all = () => {
     }
   }
   return storiesArr;
+};
+
+StoryStore.latestStory = () => {
+  let id = _latestStory.id;
+  _latestStory = {};
+  return id;
 };
 
 StoryStore.find = (id) => {
@@ -32,6 +39,7 @@ let removeStory = (id) => {
 };
 
 let resetSingleStory = (story) => {
+  _latestStory = story;
   _stories[story.id] = story;
   StoryStore.__emitChange();
 };
