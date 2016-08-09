@@ -19,9 +19,9 @@ StoryStore.all = () => {
 };
 
 StoryStore.latestStory = () => {
-  let id = _latestStory.id;
+  let story = Object.assign({}, _latestStory);
   _latestStory = {};
-  return id;
+  return story;
 };
 
 StoryStore.find = (id) => {

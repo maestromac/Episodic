@@ -54,7 +54,7 @@ module.exports = {
 
   editStory (story, successCb, errorCb) {
     $.ajax({
-      url: 'api/stories',
+      url: 'api/stories/' + story.id,
       method: 'PATCH',
       data: { story: { title: story.title, body: story.body }},
       success: (resp) => {

@@ -24,9 +24,9 @@ const StoryForm = React.createClass({
   },
 
   _onChange () {
-    let latestStoryId = StoryStore.latestStory();
-    if ( latestStoryId ) {
-      hashHistory.push(`/stories/${latestStoryId}`);
+    let latestStory = StoryStore.latestStory().id;
+    if ( latestStory ) {
+      hashHistory.push(`/stories/${latestStory}`);
     }
   },
 
