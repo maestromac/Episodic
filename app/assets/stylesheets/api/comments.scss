@@ -1,0 +1,66 @@
+// Place all the styles related to the api/comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comments-index-item {
+    font-size: 14px;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+    background: white;
+    width: 640px;
+    margin: 20px auto;
+}
+
+.comments-index-item-content {
+  padding: 20px;
+}
+
+.comments-index-item-author {
+  display: flex;
+
+  ul {
+    padding-left: 12px;
+  }
+}
+
+.comments-plate-form {
+  font-size: 14px;
+  border: 1px solid #E8E8E8;
+  border-radius: 4px;
+  background: white;
+  width: 640px;
+  margin: 0px auto;
+
+  ul {
+    display: flex;
+
+    li:last-child {
+      padding: 8px 4px;
+    }
+
+  }
+
+  button {
+    border: 1px solid #00ab6c;
+    padding: 10px 23px;
+    border-radius: 40px;
+    outline: none;
+  }
+}
+
+.comments-plate-form-content {
+  padding: 20px;
+}
+
+.comments-plate-form-author {
+  // padding: 20px;
+}
+
+.comments-plate-form-body {
+  width: 100%;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  margin: 20px 0px;
+}

@@ -51,7 +51,12 @@ const Header = React.createClass({
   },
 
   handleOptionClick () {
-    let change = this.state.options === "pop-over-hidden" ? "pop-over" : "pop-over-hidden";
+    let change;
+    if (this.state.options === "pop-over-hidden") {
+      change = "pop-over";
+    } else {
+      change = "pop-over-hidden";
+    }
     this.setState({ options: change });
   },
 

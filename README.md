@@ -11,10 +11,10 @@ Episodic is a web application inspired by Medium that will be build using Ruby o
 - [x] Hosting on Heroku
 - [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Stories
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+- [x] Stories
+  - [x] Smooth, bug-free navigation
+  - [x] Adequate seed data to demonstrate the site's features
+  - [x] Adequate CSS styling
 - [ ] Commenting on stories
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -51,48 +51,47 @@ Episodic is a web application inspired by Medium that will be build using Ruby o
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication backend setup
-- [ ] create `StaticPages` controller and root view
-- [ ] set up webpack & flux scaffold with skeleton files
-- [ ] setup `APIUtil` to interact with the API
-- [ ] set up flux cycle for frontend auth
-- [ ] user signup/signin components
-- [ ] blank landing component after signin
-- [ ] style signin/signup components
-- [ ] seed users
+- [x] create new project
+- [x] create `User` model
+- [x] authentication backend setup
+- [x] create `StaticPages` controller and root view
+- [x] set up webpack & flux scaffold with skeleton files
+- [x] setup `APIUtil` to interact with the API
+- [x] set up flux cycle for frontend auth
+- [x] user signup/signin components
+- [x] blank landing component after signin
+- [x] style signin/signup components
+- [x] seed users
 
 ### Phase 2: Stories Model, API, and components (2 days, W1 F 6pm)
 
 **Objective:** Stories can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Story` model
-- [ ] seed the database with a small amount of test data
+- [x] create `Story` model
+- [x] seed the database with a small amount of test data
 - [ ] CRUD API for Stories (`StoriesController`)
-- [ ] jBuilder views for stories
+- [x] jBuilder views for stories
 - [ ] test out API interaction in the console.
 - implement each story component, building out the flux loop as needed.
-  - [ ] `StoriesIndex`
-  - [ ] `StoryIndexItem`
-  - [ ] `StoryForm`
+  - [x] `StoriesIndex`
+  - [x] `StoryIndexItem`
+  - [x] `StoryForm`
 - [ ] save stories to the DB when the form loses focus or is left idle after editing.
-- [ ] style stories components
-- [ ] seed stories
+- [x] style stories components
+- [x] seed stories
 
 ### Phase 3: Comments (2 day, W2 Tu 6pm)
 
 **Objective:** Comment belong to Stories
 
-- [ ] create `Comment` model
+- [x] create `Comment` model
 - build out API, Flux loop, and components for:
   - [ ] Comment CRUD
   - [ ] adding comments requires a story
-  - [ ] moving comments to a different story
   - [ ] viewing comments by story
 - [ ] Use CSS to style new components
-- [ ] Seed Comments
+- [x] Seed Comments
 
 Phase 3 adds organization to the comments. Comments belong to a Story,
 which has its own `Index` view.

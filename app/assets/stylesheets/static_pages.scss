@@ -137,20 +137,6 @@ p {
   white-space: pre-wrap;
 }
 
-.stories-index {
-    margin-left: 25px;
-    margin-right: 25px;
-    font-size: 14px;
-    border: 1px solid #E8E8E8;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background: white;
-    width: 660px;
-}
-.stories-index-content {
-  padding: 20px;
-}
-
 .meta-bar {
   background: white;
   border-bottom: 1px solid rgba(0,0,0,.09);
@@ -176,15 +162,15 @@ p {
   top: 9px;
   padding: 8px 0px;
   color: #6A6A6A;
+  font-size: 15px;
 
   li {
     margin: 0;
     padding: 7px 25px;
   }
-  li:nth-child(5) {
-    border-bottom: 1px solid rgba(0,0,0,.09);
-
-  }
+  // li:nth-child(5) {
+  //   border-bottom: 1px solid rgba(0,0,0,.09);
+  // }
   li:last-child {
     button {
       margin: 0;
@@ -197,37 +183,15 @@ p {
 }
 
 
-.triangle-up-gray {
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 12px solid #eee;
-  position: absolute;
-  right: 100px;
-  top: -12px;
-}
-
-.triangle-up-white {
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 12px solid white;
-  position: absolute;
-  right: 100px;
-  top: -10px;
-}
-
-
-
-
 .whole-story {
   padding-top: 40px;
   max-width: 700px !important;
 }
 
-.index-list-title {
-  font-size: 29px;
-  font-weight: normal;;
+.divider-plate-content {
+  color: #646464;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  padding: 20px 0px;
 }

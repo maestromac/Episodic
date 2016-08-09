@@ -9,14 +9,16 @@ const React = require('react'),
 
 const StoriesIndexItem = React.createClass({
   render () {
+
     let story = this.props.story;
     let date = new Date(story.created_at).toDateString();
     date = date.split(" ").splice(1, 2).join(" ");
+    
     return (
-      <div className="stories-index">
-        <div className="stories-index-content">
+      <div className="stories-index-item">
+        <div className="stories-index-item-content">
 
-          <div className="stories-index-author">
+          <div className="stories-index-item-author">
             <Avatar
               size={33}
               round={true}
@@ -30,7 +32,7 @@ const StoriesIndexItem = React.createClass({
           </div>
 
           <Link to={`/stories/${story.id}`}
-                className="index-list-title">
+                className="stories-index-item-title">
                 {story.title}
               </Link>
           <br />

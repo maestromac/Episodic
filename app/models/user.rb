@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :stories, foreign_key: :author_id
+  has_many :comments, foreign_key: :commenter_id
 
   attr_reader :password
 

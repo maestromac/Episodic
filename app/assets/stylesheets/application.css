@@ -47,11 +47,22 @@ main {
 
 .story-plate {
   margin: 0 auto;
+  background: #FFFFFF;
+}
+
+.divider-plate {
+  margin: 0 auto;
+  background: #FAFAFA;
+}
+
+.comment-plate {
+  margin: 0 auto;
   background: #FAFAFA;
 }
 
 .main-plate {
   padding-top: 40px;
+  padding-bottom: 40px;
   background: #FAFAFA;
 }
 

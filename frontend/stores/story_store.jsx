@@ -8,7 +8,13 @@ const StoryStore = new Store(AppDispatcher);
 // window.StoryStore = StoryStore;
 
 StoryStore.all = () => {
-  return Object.assign({}, _stories);
+  let storiesArr = [];
+  for (var id in _stories) {
+    if (_stories.hasOwnProperty(id)) {
+      storiesArr.push(_stories[id]);
+    }
+  }
+  return storiesArr;
 };
 
 StoryStore.find = (id) => {

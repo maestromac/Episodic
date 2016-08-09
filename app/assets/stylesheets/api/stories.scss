@@ -3,7 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.stories-index-author {
+.stories-index-item {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 14px;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: white;
+    width: 660px;
+}
+
+.stories-index-item-title {
+  font-size: 29px;
+  font-weight: normal;;
+}
+
+.stories-index-item-content {
+  padding: 20px;
+}
+
+.stories-index-item-author {
   display: flex;
 
   ul {

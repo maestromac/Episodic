@@ -2,7 +2,9 @@ const React = require('react'),
       ReactDOM = require('react-dom'),
       StoryActions = require('../actions/story_actions'),
       StoryStore = require('../stores/story_store'),
-      StoriesIndexItem = require('./stories_index_items');
+      StoriesIndexItem = require('./stories_index_item'),
+      CommentsIndex = require('./comments_index'),
+      CommentForm = require('./comment_form');
 
 const StoryView = React.createClass({
   getInitialState () {
@@ -52,8 +54,24 @@ const StoryView = React.createClass({
       );
     }
     return (
-      <div className="story-plate">
-        {content}
+      <div>
+        <div className="story-plate">
+          {content}
+        </div>
+
+        <div className="divider-plate">
+          <div className="center">
+            <div className="divider-plate-content">
+              <h1>Comments</h1>
+            </div>
+          </div>
+        </div>
+
+        <div className="comment-plate">
+          <CommentForm storyId={this.id}/>
+          <br/>
+          <CommentsIndex storyId={this.id} />
+        </div>
       </div>
     );
   }

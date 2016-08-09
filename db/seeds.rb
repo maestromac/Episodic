@@ -17,7 +17,8 @@
   jdsalingerAGIK
   skingCOTK
   skingTC
-  9_stories
+  1_stories
+  2_comments
 }.each do |part|
   require File.expand_path(File.dirname(__FILE__))+"/seeds/#{part}.rb"
 end
