@@ -11,7 +11,9 @@ const MainIndex = React.createClass({
   render () {
     return (
       <div className="main-plate">
-        <StoriesIndex authorId={this.props.authorId} />
+        <StoriesIndex
+          authorId={this.props.authorId}
+          path={this.props.location.pathname} />
       </div>
     );
   }

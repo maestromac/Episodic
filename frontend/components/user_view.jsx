@@ -88,7 +88,7 @@ const UserView = React.createClass({
             {
               React.Children.map(this.props.children,
                (child) => React.cloneElement(child, {
-                 authorId: user.id
+                 authorId: user.id,
                })
               )
             }

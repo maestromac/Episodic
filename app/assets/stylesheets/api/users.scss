@@ -65,3 +65,14 @@
   display: flex;
   justify-content: space-between;
 }
+
+.author-edit-delete-buttons {
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    li {
+      margin-left: 5px;
+      color: #737373;
+    }
+  }
+}

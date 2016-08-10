@@ -26,12 +26,14 @@ const StoriesIndexItem = React.createClass({
     let story = this.props.story;
     let date = new Date(story.created_at).toDateString();
     let buttons;
-
-    if (SessionStore.currentUser().id === story.author_id) {
+    if (SessionStore.currentUser().id === story.author_id &&
+        this.props.path.indexOf("/user/") !== -1 ) {
       buttons = (
-        <div>
-          <button onClick={this.handleEdit}>Edit</button>
-          <button onClick={this.handleDelete}>Delete</button>
+        <div className="author-edit-delete-buttons">
+          <ul>
+            <li><button onClick={this.handleEdit}>Edit</button></li>
+            <li><button onClick={this.handleDelete}>Delete</button></li>
+          </ul>
         </div>
       );
     }
@@ -71,6 +73,8 @@ const StoriesIndexItem = React.createClass({
             {story.body}
           </p>
           <br />
+
+          {buttons}
           <br />
         </div>
       </div>
