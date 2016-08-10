@@ -6,7 +6,9 @@ const React = require('react'),
       SessionActions = require('../actions/session_actions'),
       UserActions = require('../actions/user_actions'),
       UserStore = require('../stores/user_store'),
-      StoriesIndex = require('./stories_index');
+      StoriesIndex = require('./stories_index'),
+      SessionButton = require('./session_button'),
+      FollowButton = require('./follow_button');
 
 
 const UserView = React.createClass({
@@ -66,7 +68,9 @@ const UserView = React.createClass({
                   src={user.avatar} />
                 </div>
 
-
+                <FollowButton
+                    isFollowing={user.followed}
+                    followeeId={this.props.routeParams.id} />
               </div>
               <div>
                 <ul className="user-view-links">

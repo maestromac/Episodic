@@ -2,8 +2,7 @@ class Api::FollowsController < ApplicationController
   before_action :require_log_in
 
   def create
-    @follow = Follow.new(followee_id: params[:id], follower_id: current_user.id)
-
+    @follow = Follow.new(followee_id: params[:user_id], follower_id: current_user.id)
     if @follow.save
       render json: @follow
     else
@@ -13,7 +12,6 @@ class Api::FollowsController < ApplicationController
 
   def destroy
     @follow = Follow.find_by(followee_id: params[:id], follower_id: current_user.id)
-
     if @follow
       @follow.destroy!
       render json: @follow
