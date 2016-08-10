@@ -1,16 +1,17 @@
 const React = require('react'),
       SessionStore = require('../stores/session_store'),
       SessionButton = require('./session_button'),
-      FollowActions = require('../actions/follow_actions');
+      FollowActions = require('../actions/follow_actions'),
+      UserActions = require('../actions/user_actions');
 
 const FollowButton = React.createClass({
 
   handleUnfollow () {
-    FollowActions.toggleUnfollow(this.props.followeeId);
+    UserActions.toggleUnfollow(this.props.followeeId);
   },
 
   handleFollow () {
-    FollowActions.toggleFollow(this.props.followeeId);
+    UserActions.toggleFollow(this.props.followeeId);
   },
 
   render () {
@@ -19,11 +20,19 @@ const FollowButton = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       if (this.props.isFollowing) {
         followButton = (
-          <button onClick={this.handleUnfollow}>Following</button>
+          <button
+            className="following-button"
+            onClick={this.handleUnfollow}>
+              Following
+          </button>
         );
       } else {
         followButton = (
-          <button onClick={this.handleFollow}>Follow</button>
+          <button
+            className="follow-button"
+            onClick={this.handleFollow}>
+              Follow
+          </button>
         );
       }
     } else {
@@ -31,7 +40,7 @@ const FollowButton = React.createClass({
     }
 
     return (
-      <div className="follow-button medium-color">
+      <div className="user-view-following-status">
         {followButton}
       </div>
     );

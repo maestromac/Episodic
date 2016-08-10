@@ -1,26 +1,24 @@
 module.exports = {
   toggleFollow (id, successCb, errorCb) {
     $.ajax({
-      url: `api/users/${id}/follows`,
+      url: `api/users/${id}/follow`,
       method: 'POST',
       success: (resp) => {
-        successCb(resp);
+        successCb(resp.followee_id);
       },
       error: (resp) => {
-        debugger
         errorCb(resp);
       }
     });
   },
   toggleUnfollow (id, successCb, errorCb) {
     $.ajax({
-      url: `api/users/${id}/follows/${id}`,
+      url: `api/users/${id}/follow`,
       method: 'DELETE',
       success: (resp) => {
-        successCb(resp);
+        successCb(resp.followee_id);
       },
       error: (resp) => {
-        debugger
         errorCb(resp);
       }
     });

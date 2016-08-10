@@ -34,7 +34,7 @@ let resetAllStories = (stories) => {
 };
 
 let removeStory = (id) => {
-  _stories[id] = undefined;
+  delete _stories[id];
   StoryStore.__emitChange();
 };
 

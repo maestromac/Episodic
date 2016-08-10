@@ -37,7 +37,12 @@ class Api::StoriesController < ApplicationController
 
   def destroy ###
     @story = Story.find(params[:id])
-    @story.destroy
+
+    if @story.destroy
+      render json: @story
+    else
+      render json: ["How could this ever go wrong"], status: 404
+    end
   end
 
   private

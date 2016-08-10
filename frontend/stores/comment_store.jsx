@@ -31,7 +31,7 @@ let resetSingleComment = (comment) => {
 };
 
 let removeComment = (id) => {
-  _comments[id] = undefined;
+  delete _comments[id];
   CommentStore.__emitChange();
 };
 

@@ -24,7 +24,7 @@ const StoryActions = {
   },
 
   destroyStory (id) {
-    StoryApiUtil.destroyStory(id, this.receiveAllStories);
+    StoryApiUtil.destroyStory(id, this.deleteStory);
   },
 
   receiveAllStories (stories) {

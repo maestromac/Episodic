@@ -4,15 +4,15 @@ const AppDispatcher = require('../dispatcher/dispatcher'),
 
 
 const FollowActions = {
-  toggleFollow (id) {
-    debugger
-    FollowApiUtil.toggleFollow(id, UserActions.fetchUser(id));
-  },
+  // this doesn't work
 
-  toggleUnfollow (id) {
-    debugger
-    FollowApiUtil.toggleUnfollow(id, UserActions.fetchUser(id));
-  },
+  // toggleFollow (id) {
+  //   FollowApiUtil.toggleFollow(id, UserActions.fetchUser.bind(UserActions);
+  // },
+  //
+  // toggleUnfollow (id) {
+  //   FollowApiUtil.toggleUnfollow(id, UserActions.fetchUser.bind(UserActions);
+  // },
 
 };
 

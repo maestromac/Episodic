@@ -19,7 +19,7 @@ const StoriesIndexItem = React.createClass({
   handleDelete (e) {
     e.preventDefault();
     //are you sure you want to delete this
-    StoryActions.destroyStory(this.props.story);
+    StoryActions.destroyStory(this.props.story.id);
   },
 
   render () {

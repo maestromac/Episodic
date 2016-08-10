@@ -71,7 +71,7 @@ module.exports = {
       url: 'api/stories/' + id,
       method: 'DELETE',
       success: (resp) => {
-        successCb(resp);
+        successCb(resp.id);
       },
       error: (resp) => {
         errorCb(resp);
