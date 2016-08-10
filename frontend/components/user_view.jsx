@@ -44,7 +44,7 @@ const UserView = React.createClass({
   render () {
 
     let user = this.state.user;
-    let content = (<div><h2>loading</h2></div>);
+    let content = (<div></div>);
 
     if (user) {
       content = (

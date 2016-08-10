@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
 
   has_many :stories, foreign_key: :author_id
   has_many :comments, foreign_key: :commenter_id
+  has_many :in_follows, class_name: "Follow", foreign_key: "followee_id"
+  has_many :out_follows, class_name: "Follow", foreign_key: "follower_id"
+  has_many :followers, through: :in_follows, source: :follower
+  has_many :followees, through: :out_follows, source: :followee
 
   attr_reader :password
 
@@ -40,6 +44,10 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.session_token ||= generate_session_token
+  end
+
+  def follows?(user)
+    out_follows.exists?(followee_id: user.id)
   end
 
 end

@@ -9,12 +9,17 @@ module.exports =
     backgroundColor : 'rgba(0,0,0,.6)',
   },
   content: {
+    position: 'relative',
+    display: 'table',
     width           : '280px',
-    height          : '320px',
-    margin          : 'auto auto',
+    overflowX        : 'auto',
+    overflowY        : 'auto',
+    height          : 'auto',
+    minHeight          : '340px',
+    margin          : '85px auto',
     border          : '1px solid #ccc',
     padding         : '0',
     opacity         : '0',
-    transition      : 'opacity 0.5s'
+    transition      : 'opacity 0.5s',
   }
 };
