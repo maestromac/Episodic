@@ -9,15 +9,16 @@ const React = require('react'),
       SignupForm = require('./signup_form'),
       SessionStore = require('../stores/session_store'),
       SessionActions = require('../actions/session_actions'),
-      StoriesIndex = require('./stories_index');
+      StoriesIndex = require('./stories_index'),
+      SessionHub = require('./session_hub');
 
 const Header = React.createClass({
   getInitialState() {
-    return { modalOpen: false, logIn: false, options: "pop-over-hidden" };
+    return { modalOpen: false, options: "pop-over-hidden" };
   },
 
-  _onModalOpen (boolean) {
-    this.setState({ modalOpen: true , logIn: boolean });
+  _onModalOpen () {
+    this.setState({ modalOpen: true });
   },
 
   _onModalClose () {
@@ -61,18 +62,21 @@ const Header = React.createClass({
   },
 
   render () {
+    let logout = <button onClick={this.logOut}>Log Out</button>;
+    let write = (
+      <a onClick={this._onModalOpen}>Write a story</a>
+    );
     let login = (
-      <a onClick={this._onModalOpen.bind(this, true)}>Log In</a>
+      <a onClick={this._onModalOpen}>Log In</a>
     );
     let signup = (
-      <a onClick={this._onModalOpen.bind(this, false)}>Sign Up</a>
+      <a onClick={this._onModalOpen}>Sign Up</a>
     );
-    let logout = <button onClick={this.logOut}>Log Out</button>;
-    let component = (this.state.logIn) ? <LoginForm /> : <SignupForm />;
+
     let session = (
       <nav>
         <ul>
-          <li><Link to={'/new-story'}>Write a story</Link></li>
+          <li>{write}</li>
           <li>{login} / {signup}</li>
         </ul>
         <Modal
@@ -81,7 +85,7 @@ const Header = React.createClass({
           style={ModalStyle}
           onAfterOpen={this._toggleOpague}
           >
-          {component}
+          <SessionHub />
           <button
             className="modal-button"
             onClick={this._onModalClose}>

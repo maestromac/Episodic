@@ -35,19 +35,19 @@ const App = React.createClass({
 
 let _ensureLoggedIn = (nextState, replace) => {
   if (!SessionStore.isUserLoggedIn()) {
-    replace('/login');
+    replace('/');
   }
 };
 // <Route path="login" component={LoginForm} />
 // <Route path="signup" component={SignupForm} />
-// onEnter={ _ensureLoggedIn }
+//
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={MainIndex} />
     <Route path="/stories/:id" component={StoryView} />
     <Route path="/stories/:id/edit" component={StoryEdit} />
-    <Route path="/new-story" component={StoryForm} />
+    <Route path="/new-story" component={StoryForm} onEnter={ _ensureLoggedIn }/>
     <Route path="/user/:id" component={UserView}>
       <IndexRoute component={MainIndex} />
       <Route path="stories" component={MainIndex}/>
