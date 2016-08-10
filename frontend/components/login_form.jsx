@@ -52,7 +52,7 @@ const LoginForm = React.createClass({
     return (
       <div className="login-form">
 
-        <h2>Log In</h2>
+        <h2 className="session-web-title">Log In</h2>
 
         <ul className="error">
           {this.state.errors.map( (error, idx) => {

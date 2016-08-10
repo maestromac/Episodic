@@ -14,38 +14,46 @@ const SessionHub = React.createClass({
     return { temp: "" };
   },
 
-  guestLogin () {
-    SessionActions.logIn({ username: 'guest', password: 'password' });
+  componentDidMount () {
+    this.listener = SessionStore.addListener(this._onChange);
   },
 
-  _handleGuestLogIn (e) {
-    e.preventDefault();
-    this.guestLogin();
+  componentWillUnmount () {
+    this.listener.remove();
+  },
+
+  _onChange () {
+    if ( SessionStore.isUserLoggedIn() ) {
+      hashHistory.push('/');
+    }
+  },
+
+  _handleGuestLogIn () {
+    SessionActions.logIn({ username: 'guest', password: 'password' });
   },
 
   _handleLogIn (e) {
     e.preventDefault();
-    // this.content = <LoginForm />;
     this.setState({ temp: "LoginForm" });
   },
 
-  _hnaldeSignUp (e) {
+  _handleSignUp (e) {
     e.preventDefault();
-    // this.content = <SignupForm />;
     this.setState({ temp: "SignupForm" });
   },
 
   render () {
+
     let content;
 
     if (this.state.temp === "") {
       content = (
-       <div>
-         <h3>where are my buttons</h3>
+       <div className="session-hub">
+         <h3 className="session-web-title">Episodic</h3>
          <ul>
-           <li><button onClick={this._handleGuestLogIn}>Guest Login</button></li>
-           <li><button onClick={this._handleLogIn}>Sign In</button></li>
-           <li><button onClick={this._hnaldeSignUp}>Sign Up</button></li>
+           <li><button className="session-hub-button guest" onClick={this._handleGuestLogIn}>Guest Login</button></li>
+           <li><button className="session-hub-button" onClick={this._handleLogIn}>Sign In</button></li>
+           <li><button className="session-hub-button" onClick={this._handleSignUp}>Sign Up</button></li>
          </ul>
        </div>
      );

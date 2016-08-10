@@ -6,3 +6,52 @@
 .meta-bar-avatar:hover {
   cursor: pointer;
 }
+
+
+.session-web-title {
+  font-size: 35px;
+  font-weight: 200;
+  color: #00110a;
+  text-align-last: center;
+  margin: 30px auto;
+}
+
+.session-web-title::first-letter {
+  font-family: monospace;
+  font-size: 50px;
+  font-weight: 200;
+  color: #00110a;
+}
+
+.session-hub {
+  ul {
+    text-align: center;
+  }
+  li {
+    margin: 15px 0px;
+  }
+
+}
+
+.session-hub-button {
+  border: 1px solid #00ab6c;
+  border-radius: 2px;
+  padding: 12px 0px;
+  width: 68%;
+  background: #00ab6c;
+  color: white;
+  font-weight: 400;
+}
+
+.session-hub-button:hover {
+  background: #008856;
+}
+
+button.guest {
+  border: 1px solid #002215;
+  background: #002215;
+}
+
+button.guest:hover {
+  background: #000000;
+}

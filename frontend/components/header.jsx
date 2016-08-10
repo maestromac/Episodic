@@ -14,7 +14,7 @@ const React = require('react'),
 
 const Header = React.createClass({
   getInitialState() {
-    return { modalOpen: false, options: "pop-over-hidden" };
+    return { modalOpen: false, options: "pop-over-hidden", temp: "" };
   },
 
   _onModalOpen () {

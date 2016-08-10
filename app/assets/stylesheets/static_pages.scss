@@ -5,37 +5,39 @@
 .login-form, .signup-form {
   width: inherit;
   height: inherit;
-  display: table-cell;
   text-align: center;
   vertical-align: middle;
 
-  h2 {
-    font-size: 22px;
-    color: gray;
-    margin-bottom: 20px;
-
-  }
-
   .username, .password {
-    border: 1px solid gray;
+    border-bottom: 1px solid gray;
     width: 69%;
     font-size: 15px;
-    margin-bottom: 8px;
-    border-radius: 3px;
+    margin-bottom: 10px;
     font-weight: 100;
     text-align: inherit;
+    padding-bottom: 6px;
   }
 
   .button {
+    // background: #00ab6c;
+    // border: 2px none #00ab6c;
+    // border-radius: 4px;
+    // font-size: 15px;
+    // margin-bottom: 8px;
+    // width: 71%;
+    // color: white;
+    // padding: 5px;
+    // cursor: pointer;
     background: #00ab6c;
-    border: 2px none #00ab6c;
-    border-radius: 4px;
-    font-size: 15px;
-    margin-bottom: 8px;
+    border: 1px none #00ab6c;
+    border-radius: 2px;
+    font-size: 16px;
+    margin-bottom: 9px;
     width: 71%;
     color: white;
-    padding: 5px;
+    padding: 9px;
     cursor: pointer;
+    font-weight: 300;
   }
 
   .button:hover {

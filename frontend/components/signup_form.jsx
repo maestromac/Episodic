@@ -63,7 +63,7 @@ const SignupForm = React.createClass({
     return (
       <div className="signup-form">
 
-        <h2>Sign Up</h2>
+        <h2 className="session-web-title">Sign Up</h2>
         <ul className="error">
           {this.state.errors.map( (error, idx) => {
             return <li key={idx}>{error}</li>;

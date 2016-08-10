@@ -6,16 +6,15 @@ module.exports =
     left            : 0,
     right           : 0,
     bottom          : 0,
-    backgroundColor : 'rgba(0, 171, 108, 0.95)',
+    backgroundColor : 'rgba(0,0,0,.6)',
   },
   content: {
-    width           : '230px',
-    height          : '250px',
+    width           : '280px',
+    height          : '320px',
     margin          : 'auto auto',
     border          : '1px solid #ccc',
-    padding         : '10px',
+    padding         : '0',
     opacity         : '0',
     transition      : 'opacity 0.5s'
-
   }
 };
