@@ -15,6 +15,9 @@ class Api::StoriesController < ApplicationController
   def index
     if params[:user_id]
       @stories = Story.where(author_id: params[:user_id])
+    elsif params[:follow_id]
+      feed_authors = User.find(params[:follow_id]).followees.map { |u| u.id }
+      @stories = Story.where(author_id: feed_authors)
     else
       @stories = Story.all
     end

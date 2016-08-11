@@ -8,6 +8,10 @@ Rails.application.routes.draw do
       resource :follow, only: [:create, :destroy]
     end
 
+    resources :follows, only: [:index] do
+      resources :stories, only: [:index]
+    end
+
     resources :stories, only: [:create, :destroy, :index, :show, :update] do
       resources :comments, only: [:index]
     end

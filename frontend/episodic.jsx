@@ -48,6 +48,7 @@ const routes = (
     <Route path="/stories/:id" component={StoryView} />
     <Route path="/stories/:id/edit" component={StoryEdit} />
     <Route path="/new-story" component={StoryForm} onEnter={ _ensureLoggedIn }/>
+    <Route path="/feed" component={MainIndex} onEnter={ _ensureLoggedIn }/>
     <Route path="/user/:id" component={UserView}>
       <IndexRoute component={MainIndex} />
       <Route path="stories" component={MainIndex}/>

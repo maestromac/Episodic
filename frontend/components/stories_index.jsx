@@ -3,6 +3,7 @@ const React = require('react'),
       StoryActions = require('../actions/story_actions'),
       StoryStore = require('../stores/story_store'),
       StoriesIndexItem = require('./stories_index_item'),
+      SessionStore = require('../stores/session_store'),
       hashHistory = require('react-router').hashHistory;
 
 const StoriesIndex = React.createClass({
@@ -14,6 +15,8 @@ const StoriesIndex = React.createClass({
     this.listener = StoryStore.addListener(this._onChange);
     if (this.props.authorId) {
       StoryActions.fetchAllStoriesByParticularAuthor(this.props.authorId);
+    } else if (this.props.path === "/feed") {
+      StoryActions.fetchFeedStories(SessionStore.currentUser().id);
     } else {
       StoryActions.fetchAllStories();
     }
@@ -24,6 +27,12 @@ const StoriesIndex = React.createClass({
     // StoryActions.fetchSingleStory(this.id);
     if (this.id) {
       StoryActions.fetchAllStoriesByParticularAuthor(this.id);
+    } else {
+      if (nextProps.path === "/feed") {
+        StoryActions.fetchFeedStories(SessionStore.currentUser().id);
+      } else if (nextProps.path === "/") {
+        StoryActions.fetchAllStories();
+      }
     }
   },
 

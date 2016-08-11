@@ -25,6 +25,19 @@ module.exports = {
     });
   },
 
+  fetchFeedStories (id, successCb, errorCb) {
+    $.ajax({
+      url: `/api/follows/${id}/stories`,
+      method: 'GET',
+      success: (resp) => {
+        successCb(resp);
+      },
+      error: (resp) => {
+        errorCb(resp);
+      }
+    });
+  },
+
   fetchSingleStory (id, successCb, errorCb) {
     $.ajax({
       url: 'api/stories/' + id,

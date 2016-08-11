@@ -36,7 +36,11 @@ const FollowButton = React.createClass({
         );
       }
     } else {
-      followButton = <SessionButton name={"Follow"}/>;
+      followButton = (
+        <div className="follow-button-special">
+          <SessionButton name={"Follow"} />
+        </div>
+      );
     }
 
     return (

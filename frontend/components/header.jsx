@@ -3,29 +3,15 @@ import Avatar from 'react-avatar';
 
 const React = require('react'),
       ReactDOM = require('react-dom'),
-      // Modal = require('react-modal'),
-      // ModalStyle = require('./modal_style'),
-      // LoginForm = require('./login_form'),
-      // SignupForm = require('./signup_form'),
       SessionStore = require('../stores/session_store'),
       SessionActions = require('../actions/session_actions'),
       StoriesIndex = require('./stories_index'),
-      // SessionHub = require('./session_hub'),
       SessionButton = require('./session_button');
 
 const Header = React.createClass({
   getInitialState() {
     return { modalOpen: false, options: "pop-over-hidden", temp: "" };
   },
-
-  // _onModalOpen () {
-  //   this.setState({ modalOpen: true });
-  // },
-  //
-  // _onModalClose () {
-  //   this.setState({ modalOpen: false });
-  //   ModalStyle.content.opacity = 0;
-  // },
 
   componentDidMount () {
     this.listener = SessionStore.addListener(this._onChange);
@@ -40,10 +26,6 @@ const Header = React.createClass({
       hashHistory.push('/');
     }
   },
-
-  // _toggleOpague () {
-  //   ModalStyle.content.opacity = 100;
-  // },
 
   logOut (e) {
     e.preventDefault();
@@ -63,38 +45,7 @@ const Header = React.createClass({
   },
 
   render () {
-    // let write = (
-    //   <a onClick={this._onModalOpen}>Write a story</a>
-    // );
-    // let login = (
-    //   <a onClick={this._onModalOpen}>Log In</a>
-    // );
-    // let signup = (
-    //   <a onClick={this._onModalOpen}>Sign Up</a>
-    // );
-    //
-    // let session = (
-    //   <nav>
-    //     <ul>
-    //       <li>{write}</li>
-    //       <li>{login} / {signup}</li>
-    //     </ul>
-    //     <Modal
-    //       isOpen={this.state.modalOpen}
-    //       onRequestClose={this._onModalClose}
-    //       style={ModalStyle}
-    //       onAfterOpen={this._toggleOpague}
-    //       >
-    //       <SessionHub />
-    //       <button
-    //         className="modal-button"
-    //         onClick={this._onModalClose}>
-    //         X
-    //       </button>
-    //     </Modal>
-    //
-    //   </nav>
-    // );
+
     let session = (
       <nav>
         <ul>
@@ -103,19 +54,23 @@ const Header = React.createClass({
         </ul>
       </nav>
     );
+    let feed = SessionStore.isUserLoggedIn() ?
+      <Link to={`/feed`}>Feed</Link> : <SessionButton name={`Feed`} />;
 
     let logout = <button onClick={this.logOut}>Log Out</button>;
     let metabarLower = (
       <ul>
         <li>Editor's Pick</li>
         <li>Popular</li>
-        <li>Feed</li>
+
+        <li>{feed}</li>
+
         <li>Horror</li>
         <li>Fiction</li>
       </ul>
     );
 
-    if (this.props.path !== "/") {
+    if (this.props.path !== "/" && this.props.path !== "/feed" ) {
       metabarLower = "";
     }
 
@@ -154,7 +109,9 @@ const Header = React.createClass({
                           </li>
 
                           <li>
-        <Link to={`/user/${SessionStore.currentUser().id}/stories`}>Stories</Link>
+                    <Link to={`/user/${SessionStore.currentUser().id}/stories`}>
+                      Stories
+                    </Link>
                           </li>
 
                           <li>
