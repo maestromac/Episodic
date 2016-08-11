@@ -50,4 +50,12 @@ class User < ActiveRecord::Base
     out_follows.exists?(followee_id: user.id)
   end
 
+  def followees_count
+    self.followees.count
+  end
+
+  def followers_count
+    self.followers.count
+  end
+
 end

@@ -27,6 +27,14 @@ const Header = React.createClass({
     }
   },
 
+  matchLinkWithURL (category) {
+    if (this.props.path.indexOf(category.toLowerCase()) !== -1) {
+      return "user-view-links-active";
+    } else {
+      return "";
+    }
+  },
+
   logOut (e) {
     e.preventDefault();
     SessionActions.logOut();
@@ -63,7 +71,9 @@ const Header = React.createClass({
         <li>Editor's Pick</li>
         <li>Popular</li>
 
-        <li>{feed}</li>
+        <li className={this.matchLinkWithURL("feed")}>
+          {feed}
+        </li>
 
         <li>Horror</li>
         <li>Fiction</li>

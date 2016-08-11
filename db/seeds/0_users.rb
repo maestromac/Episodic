@@ -2,28 +2,28 @@ users = User.create([
   {username: "guest",
     pen_name: "Guest User",
     password: "password",
-    description: "description goes here I think."
+    description: "I have no face and I look the same on all website"
   },
 
   {username: "wirving",
     pen_name: "Washington Irving",
     password: "password",
     avatar: File.new('app/assets/images/washington-irving.jpg'),
-    description: "description goes here I think."
+    description: "AKA Jonathan Oldstyle. Short story writer, essayist, biographer, magazine editor, diplomat."
   },
 
   {username: "iasimov",
     pen_name: "Isaac Asimov",
     password: "password",
     avatar: File.new('app/assets/images/isaac-asimov.jpg'),
-    description: "description goes here I think."
+    description: "Writer, professor of biochemistry at BU. My Niche is hard science fiction"
   },
 
   {username: "rbradbury",
     pen_name: "Ray Bradbury",
     password: "password",
     avatar: File.new('app/assets/images/ray-bradbury.jpg'),
-    description: "description goes here I think."
+    description: "Just a writer. I fancy fantasy, science fiction, horror and mystery fiction."
   },
 
   {username: "sking",

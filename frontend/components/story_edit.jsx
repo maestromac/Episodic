@@ -5,6 +5,10 @@ const React = require('react'),
       StoryActions = require('../actions/story_actions'),
       StoryStore = require('../stores/story_store');
 
+import MediumEditorReact from 'react-medium-editor';
+require('medium-editor/dist/css/medium-editor.css');
+require('medium-editor/dist/css/themes/beagle.css');
+
 const StoryEdit = React.createClass({
   getInitialState () {
     // will this be a problem?
@@ -51,11 +55,20 @@ const StoryEdit = React.createClass({
     this.setState({ title: e.target.value});
   },
 
-  handleBodyChange (e) {
-    e.preventDefault();
-    this.setState({ body: e.target.value});
+  // handleBodyChange (e) {
+  //   e.preventDefault();
+  //   this.setState({ body: e.target.value});
+  // },
+  handleBodyChange (text, medium) {
+    this.setState({ body: text});
   },
 
+  // <textarea
+  // className="form-story-body"
+  // value={this.state.body}
+  // onChange={this.handleBodyChange}
+  // placeholder="Tell a story..."
+  // />
   render () {
     return (
       <div className="center">
@@ -70,11 +83,12 @@ const StoryEdit = React.createClass({
               placeholder="Title"
               />
             <br />
-            <textarea
-              className="form-story-body"
-              value={this.state.body}
+              <MediumEditorReact
+              text={this.state.body}
               onChange={this.handleBodyChange}
-              placeholder="Tell a story..."
+              options={
+                {placeholder: { text: '', hideOnClick: true}}
+              }
               />
             <br />
             <button className="medium-color">Save Changes</button>

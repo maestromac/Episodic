@@ -30,6 +30,20 @@ const StoryView = React.createClass({
     this.listener.remove();
   },
 
+  createMarkup () {
+    return {__html: this.state.story.body };
+  },
+
+  // {
+  //   story.body.split("\n").map( (paragraph, idx) => {
+  //     return (
+  //       <div key={`${idx}`}>
+  //         <p>{paragraph}</p>
+  //         <br />
+  //       </div>
+  //     );
+  //   })
+  // }
   render () {
     let content = "";
     let story = this.state.story;
@@ -40,16 +54,7 @@ const StoryView = React.createClass({
           <br />
           <h1 className="story-title">{story.title}</h1>
           <br />
-          {
-            story.body.split("\n").map( (paragraph, idx) => {
-              return (
-                <div key={`${idx}`}>
-                  <p>{paragraph}</p>
-                  <br />
-                </div>
-              );
-            })
-          }
+          <div dangerouslySetInnerHTML={this.createMarkup()} />
         </div>
       );
     }
