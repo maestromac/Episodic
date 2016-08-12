@@ -8,7 +8,7 @@ FresherNote is a full-stack web application inspired by Episodic.  It utilizes R
 
 ## Features & Implementation
 
- **NB**: don't copy and paste any of this.  Many folks will implement similar features, and many employers will see the READMEs of a lot of a/A grads.  You must write in a way that distinguishes your README from that of other students', but use this as a guide for what topics to cover.  
+
 
 ### Single-Page App
 
