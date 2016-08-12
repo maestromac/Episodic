@@ -2,7 +2,7 @@ users = User.create([
   {username: "guest",
     pen_name: "Guest User",
     password: "password",
-    description: "I have no face and I look the same on all website"
+    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
   },
 
   {username: "wirving",
@@ -30,28 +30,28 @@ users = User.create([
     pen_name: "Stephen King",
     password: "password",
     avatar: File.new('app/assets/images/stephen-king.jpg'),
-    description: "description goes here I think."
+    description: "Novelist, short story writer, screenwriter, columnist, actor, television producer, singer, musician"
   },
 
   {username: "jdsalinger",
     pen_name: "J.D. Salinger",
     password: "password",
     avatar: File.new('app/assets/images/jd-salinger.jpg'),
-    description: "Jerome David Salinger. You honestly should know who I am."
+    description: "Jerome David Salinger. I love the west side."
   },
 
   {username: "ohenry",
     pen_name: "O. Henry",
     password: "password",
     avatar: File.new('app/assets/images/o-henry.jpg'),
-    description: "description goes here I think."
+    description: "William Sidney Porter. You may know me for wit, wordplay, warm characterization, and surprise endings"
   },
 
   {username: "jupdike",
     pen_name: "John Updike",
     password: "password",
     avatar: File.new('app/assets/images/john-updike.jpg'),
-    description: "description goes here I think."
+    description: "novelist, short story writer, literary critic"
   },
 
 ])

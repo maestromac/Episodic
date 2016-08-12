@@ -12,13 +12,10 @@
 
 %w{
   0_users
-  jdsalingerGSE
-  jdsalingerOAWWKY
-  jdsalingerAGIK
-  skingCOTK
-  skingTC
   1_stories
   2_comments
+  3_likes
+  4_follows
 }.each do |part|
   require File.expand_path(File.dirname(__FILE__))+"/seeds/#{part}.rb"
 end

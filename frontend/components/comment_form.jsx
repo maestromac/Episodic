@@ -45,7 +45,7 @@ const CommentForm = React.createClass({
         <button>Publish</button>
       );
     } else {
-      placeholderText = "Please sign-in to leaave a comment...";
+      placeholderText = "Please sign-in to leave a comment...";
       button = <SessionButton name={"Sign In"}/>;
     }
     return (

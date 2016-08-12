@@ -1,10 +1,10 @@
-# FresherNote
+# Episodic
 
-[FresherNote live][heroku] **NB:** This should be a link to your production site
+[Episodic live][heroku]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: http://aa-episodic.herokuapp.com
 
-FresherNote is a full-stack web application inspired by Evernote.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.  
+FresherNote is a full-stack web application inspired by Episodic.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.  
 
 ## Features & Implementation
 
