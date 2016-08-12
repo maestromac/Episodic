@@ -27,7 +27,7 @@ module.exports = {
 
   fetchFeedStories (id, successCb, errorCb) {
     $.ajax({
-      url: `/api/follows/${id}/stories`,
+      url: `/api/users/${id}/stories/followed`,
       method: 'GET',
       success: (resp) => {
         successCb(resp);

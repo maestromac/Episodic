@@ -16,6 +16,19 @@ const UserActions = {
     FollowApiUtil.toggleUnfollow(id, this.fetchUser.bind(this));
   },
 
+  fakeToggleFollow(id) {
+    FollowApiUtil.toggleFollow(id, this.doNothing );
+  },
+
+  fakeToggleUnfollow(id) {
+    FollowApiUtil.toggleUnfollow(id, this.doNothing );
+  },
+
+  doNothing (resp) {
+    return resp;
+  },
+
+
   receiveUser (user) {
     AppDispatcher.dispatch({
       actionType: UserConstants.USER_RECEIVED,

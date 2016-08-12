@@ -5,7 +5,7 @@ const React = require('react'),
       StoryActions = require('../actions/story_actions'),
       StoryStore = require('../stores/story_store');
 
-// import MediumEditorReact from 'react-medium-editor';
+import MediumEditorReact from 'react-medium-editor';
 import MediumEditor from 'medium-editor';
 require('medium-editor/dist/css/medium-editor.css');
 require('medium-editor/dist/css/themes/beagle.css');
@@ -35,27 +35,33 @@ const StoryForm = React.createClass({
 
   componentDidMount () {
     this.listener = StoryStore.addListener(this._onChange);
-    this.editor = new MediumEditor('.editable');
-    this.editor.subscribe('editableInput', (event, editable) => {
-      this.setState({ body: event.currentTarget.innerHTML });
-    });
+    // this.editor = new MediumEditor('.editable', {
+    //   placeholder: {
+    //     text: 'Tell a story...',
+    //     color: 'gray',
+    //     hideOnClick: true
+    //   }
+    // });
+    // this.editor.subscribe('editableInput', (event, editable) => {
+    //   this.setState({ body: event.currentTarget.innerHTML });
+    // });
 
-    $('.editable').mediumInsert({
-      editor: this.editor,
-      addons: {
-        images: {
-          deleteScript: '/image/files/',
-          deleteMethod: 'DELETE',
-          preview: true,
-          captions: true,
-          captionPlaceholder: 'ì�´ë¯¸ì§€ ìº¡ì…˜ì�„ ìž…ë ¥í•˜ì„¸ìš”(ì˜µì…˜)',
-          fileUploadOptions: {
-            url: '/image',
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-          }
-        }
-      }
-    });
+    // $('.editable').mediumInsert({
+    //   editor: this.editor,
+    //   addons: {
+    //     images: {
+    //       deleteScript: '/image/files/',
+    //       deleteMethod: 'DELETE',
+    //       preview: true,
+    //       captions: true,
+    //       captionPlaceholder: 'ì�´ë¯¸ì§€ ìº¡ì…˜ì�„ ìž…ë ¥í•˜ì„¸ìš”(ì˜µì…˜)',
+    //       fileUploadOptions: {
+    //         url: '/image',
+    //         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+    //       }
+    //     }
+    //   }
+    // });
 
   },
 
@@ -96,12 +102,10 @@ const StoryForm = React.createClass({
   //   placeholder="Tell a story..."
   //   />
 
-  // <MediumEditorReact
-  // text={this.state.body}
-  // onChange={this.handleBodyChange}
-  // options={
-  //   {placeholder: { text: 'Tell a story...', hideOnClick: true}}
-  // }
+
+  // <textarea
+  //   className="editable"
+  //   value={this.state.body}
   // />
 
   render () {
@@ -120,13 +124,14 @@ const StoryForm = React.createClass({
               />
             <br />
             <br />
+             <MediumEditorReact
+             text={this.state.body}
+             onChange={this.handleBodyChange}
+             options={
+               {placeholder: { text: 'Tell a story...', hideOnClick: true}}
+             }
+             />
 
-            <textarea
-              className="editable"
-              value={this.state.body}
-            />
-            <br />
-            <br />
             <br />
             <button className="medium-color">Publish</button>
           </form>

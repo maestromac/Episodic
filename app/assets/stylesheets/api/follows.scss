@@ -1,3 +1,25 @@
 // Place all the styles related to the api/follows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.floating-follow-modal {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  ul {
+    margin-left: 15px;
+
+    li:first-child {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    li:last-child {
+      color: gray;
+      font-size: 14px;
+    }
+  }
+}
+.floating-follow-modal-user {
+  display: flex;
+}

@@ -7,7 +7,6 @@ let _user = {};
 const UserStore = new Store(AppDispatcher);
 
 UserStore.user = () => {
-  let temp = _user;
   return Object.assign({}, _user);
 };
 

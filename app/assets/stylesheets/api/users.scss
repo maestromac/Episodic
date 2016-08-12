@@ -79,7 +79,7 @@
 
 
 .user-view-following-status {
-  padding-top: 27px;
+  padding-top: 0px;
 }
 
 .follow-button {
@@ -107,4 +107,13 @@
   font-size: 15px;
   background: #00ab6c;
   color: white;
+}
+
+.user-view-followings-followers {
+  display: flex;
+  margin: 10px auto;
+  li {
+    font-size: 13px;
+    margin-right: 15px;
+  }
 }

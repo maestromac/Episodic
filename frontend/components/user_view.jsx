@@ -8,7 +8,8 @@ const React = require('react'),
       UserStore = require('../stores/user_store'),
       StoriesIndex = require('./stories_index'),
       SessionButton = require('./session_button'),
-      FollowButton = require('./follow_button');
+      FollowButton = require('./follow_button'),
+      FollowCountsButton = require('./follow_counts_button');
 
 
 const UserView = React.createClass({
@@ -47,6 +48,7 @@ const UserView = React.createClass({
 
     let user = this.state.user;
     let content = (<div></div>);
+
     if (user) {
       content = (
         <div>
@@ -67,9 +69,25 @@ const UserView = React.createClass({
                   src={user.avatar} />
                 </div>
 
-                <FollowButton
-                    isFollowing={user.followed}
-                    followeeId={this.props.routeParams.id} />
+                <ul className="user-view-followings-followers">
+                  <li>
+                    <FollowCountsButton
+                      name={ `${user.followees_count} Followings` }
+                      users={user.followees}/>
+                  </li>
+                  <li>
+                    <FollowCountsButton
+                      name={ `${user.followers_count} Followers` }
+                      users={user.followers}/>
+                  </li>
+                </ul>
+
+                {
+                  user.id !== SessionStore.currentUser().id ?
+                    <FollowButton
+                        isFollowing={user.followed}
+                        followeeId={this.props.routeParams.id} /> : ""
+                }
               </div>
               <div>
                 <ul className="user-view-links">
