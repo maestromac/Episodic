@@ -6,7 +6,9 @@ const React = require('react'),
       ReactDom = require('react-dom'),
       StoryActions = require('../actions/story_actions'),
       StoryStore = require('../stores/story_store'),
-      SessionStore = require('../stores/session_store');
+      SessionStore = require('../stores/session_store'),
+      LikeButton = require('./like_button'),
+      DeleteButton = require('./delete_button');
 
 
 
@@ -32,7 +34,7 @@ const StoriesIndexItem = React.createClass({
         <div className="author-edit-delete-buttons">
           <ul>
             <li><button onClick={this.handleEdit}>Edit</button></li>
-            <li><button onClick={this.handleDelete}>Delete</button></li>
+            <li><DeleteButton id={story.id}/></li>
           </ul>
         </div>
       );
@@ -69,12 +71,14 @@ const StoriesIndexItem = React.createClass({
                 {story.title}
               </Link>
           <br />
-          <p className='withprewrap'>
             {story.body}
-          </p>
           <br />
-
-          {buttons}
+          <ul className="stories-index-item-info-buttons">
+            <li>
+            <LikeButton liked={story.liked} count={story.likes} id={story.id}/>
+            </li>
+            <li>{story.comments} comments {buttons}</li>
+          </ul>
           <br />
         </div>
       </div>

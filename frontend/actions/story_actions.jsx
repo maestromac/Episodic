@@ -1,6 +1,7 @@
 const AppDispatcher = require('../dispatcher/dispatcher'),
       StoryConstants = require('../constants/story_constants'),
-      StoryApiUtil = require('../util/story_api_util');
+      StoryApiUtil = require('../util/story_api_util'),
+      LikeApiUtil = require('../util/like_api_util');
 
 const StoryActions = {
   fetchAllStories () {
@@ -9,6 +10,10 @@ const StoryActions = {
 
   fetchAllStoriesByParticularAuthor (id) {
     StoryApiUtil.fetchAllStoriesByParticularAuthor(id, this.receiveAllStories);
+  },
+
+  fetchAllLikedStories (id) {
+    StoryApiUtil.fetchAllLikedStories(id, this.receiveAllStories);
   },
 
   fetchFeedStories (id) {
@@ -29,6 +34,17 @@ const StoryActions = {
 
   destroyStory (id) {
     StoryApiUtil.destroyStory(id, this.deleteStory);
+  },
+
+  toggleLike(id) {
+    LikeApiUtil.toggleLike(id, this.doNothing);
+  },
+  untoggleLike(id) {
+    LikeApiUtil.untoggleLike(id, this.doNothing);
+  },
+
+  doNothing (resp) {
+    return resp;
   },
 
   receiveAllStories (stories) {

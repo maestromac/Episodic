@@ -4,7 +4,13 @@ const React = require('react'),
       StoryStore = require('../stores/story_store'),
       StoriesIndexItem = require('./stories_index_item'),
       CommentsIndex = require('./comments_index'),
-      CommentForm = require('./comment_form');
+      CommentForm = require('./comment_form'),
+      StupidFollowButton = require('./stupid_follow_button'),
+      LikeButton =  require('./like_button');
+import Avatar from 'react-avatar';
+import { Router, Route, IndexRoute, Link, hashHistory} from 'react-router';
+
+
 
 const StoryView = React.createClass({
   getInitialState () {
@@ -44,17 +50,66 @@ const StoryView = React.createClass({
   //     );
   //   })
   // }
+
+  //
+  //   <Link to={`/user/${story.author_id}`}>
+  //     <Avatar
+  //       size={33}
+  //       round={true}
+  //       src={story.avatar} />
+  //   </Link>
+  //   <h1 className="medium-color">
+  //     <Link to={`/user/${story.author_id}`}>
+  //       {story.author}
+  //     </Link>
+  //   </h1>
   render () {
-    let content = "";
     let story = this.state.story;
+    let likes;
+    let date;
+    if (story) {
+      date = new Date(story.created_at).toDateString();
+      date = date.split(" ").splice(1, 2).join(" ");
+      likes = (
+        <ul className="stories-index-item-info-buttons">
+          <li>
+          <LikeButton liked={story.liked} count={story.likes} id={story.id}/>
+          </li>
+          <li>{story.comments} comments </li>
+        </ul>
+      );
+    }
+    let content = "";
     if (story) {
       content = (
-        <div className="center whole-story">
-          <h1 className="medium-color">{story.author}</h1>
+         <div className="center whole-story">
+        <div className="stories-index-item-author">
+          <Link to={`/user/${story.author_id}`}>
+            <Avatar
+              size={60}
+              round={true}
+              src={story.avatar} />
+          </Link>
+            <ul>
+
+              <Link to={`/user/${story.author_id}`}>
+                <li className="medium-color">{story.author} </li>
+              </Link>
+
+              <li className="gray">{story.author_des}</li>
+
+              <li className="publish-date">
+                {date} • {story.readTime} min read
+              </li>
+
+            </ul>
+        </div>
           <br />
           <h1 className="story-title">{story.title}</h1>
           <br />
           <div dangerouslySetInnerHTML={this.createMarkup()} />
+          <br />
+          {likes}
         </div>
       );
     }
@@ -62,12 +117,13 @@ const StoryView = React.createClass({
       <div>
         <div className="story-plate">
           {content}
+
         </div>
 
         <div className="divider-plate">
           <div className="center">
             <div className="divider-plate-content">
-              <h1>Comments</h1>
+              <h1></h1>
             </div>
           </div>
         </div>

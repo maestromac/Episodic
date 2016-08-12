@@ -17,6 +17,10 @@ class Api::StoriesController < ApplicationController
     @stories = Story.where(author_id: feed_authors)
   end
 
+  def liked
+    @stories = User.find(params[:user_id]).liked_stories
+  end
+
   def index
     if params[:user_id]
       @stories = Story.where(author_id: params[:user_id])

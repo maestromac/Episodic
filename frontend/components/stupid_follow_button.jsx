@@ -4,7 +4,7 @@ const React = require('react'),
       FollowActions = require('../actions/follow_actions'),
       UserActions = require('../actions/user_actions');
 
-const FollowButton = React.createClass({
+const StupidFollowButton = React.createClass({
   getInitialState () {
     return { following: this.props.isFollowing };
   },
@@ -56,4 +56,4 @@ const FollowButton = React.createClass({
   }
 });
 
-module.exports = FollowButton;
+module.exports = StupidFollowButton;

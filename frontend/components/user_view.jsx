@@ -100,6 +100,10 @@ const UserView = React.createClass({
                     <Link to={`/user/${user.id}/comments`}>Comments</Link>
                   </li>
 
+                  <li className={this.matchLinkWithURL("likes")}>
+                    <Link to={`/user/${user.id}/likes`}>Likes</Link>
+                  </li>
+
                 </ul>
               </div>
             </div>

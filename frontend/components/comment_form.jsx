@@ -2,7 +2,8 @@ import Avatar from 'react-avatar';
 
 const React = require('react'),
       SessionStore = require('../stores/session_store'),
-      CommentActions = require('../actions/comment_actions');
+      CommentActions = require('../actions/comment_actions'),
+      SessionButton = require('./session_button');
 
 const CommentForm = React.createClass({
   getInitialState () {
@@ -27,6 +28,26 @@ const CommentForm = React.createClass({
   },
 
   render () {
+    let placeholderText;
+    let avatar;
+    let button;
+    if (SessionStore.isUserLoggedIn()) {
+      avatar = (
+        <Avatar
+          key={SessionStore.currentUser().id}
+          size={33}
+          round={true}
+          src={SessionStore.currentUser().avatar}
+        />
+      );
+      placeholderText = "Leave a comment...";
+      button = (
+        <button>Publish</button>
+      );
+    } else {
+      placeholderText = "Please sign-in to leaave a comment...";
+      button = <SessionButton name={"Sign In"}/>;
+    }
     return (
       <div className="center">
         <div className="comments-plate-form">
@@ -35,12 +56,7 @@ const CommentForm = React.createClass({
             <div className="comments-plate-form-author">
               <ul>
                 <li>
-                  <Avatar
-                    key={SessionStore.currentUser().id}
-                    size={33}
-                    round={true}
-                    src={SessionStore.currentUser().avatar}
-                  />
+                  {avatar}
                 </li>
 
                 <li className="medium-color">
@@ -55,10 +71,13 @@ const CommentForm = React.createClass({
                 className="comments-plate-form-body"
                 value={this.state.body}
                 onChange={this.handleBodyChange}
-                placeholder="leave a comment.."
+                placeholder={placeholderText}
               />
               <br/>
-              <button className="medium-color">Publish</button>
+
+              <div className="medium-color">
+                {button}
+              </div>
             </form>
 
           </div>

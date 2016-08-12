@@ -22,24 +22,45 @@ const SessionButton = React.createClass({
   },
 
   render () {
+    let modal = (
+      <Modal
+        isOpen={this.state.modalOpen}
+        onRequestClose={this._onModalClose}
+        style={ModalStyle}
+        onAfterOpen={this._toggleOpague}
+        >
+        <SessionHub />
+        <button
+          className="modal-button"
+          onClick={this._onModalClose}>
+          X
+        </button>
+      </Modal>
+    );
+    let klass = this.props.klass;
+    let button;
+    if (klass) {
+      button = (
+        <div>
+          <button
+            className={klass}
+            onClick={this._onModalOpen}/>   {this.props.name}
+            {modal}
+
+        </div>
+      );
+    } else {
+      button = (
+        <button onClick={this._onModalOpen} >
+          {modal}
+          {this.props.name}
+        </button>
+      );
+    }
 
     return (
       <div>
-        <button onClick={this._onModalOpen}> {this.props.name}
-          <Modal
-            isOpen={this.state.modalOpen}
-            onRequestClose={this._onModalClose}
-            style={ModalStyle}
-            onAfterOpen={this._toggleOpague}
-            >
-            <SessionHub />
-            <button
-              className="modal-button"
-              onClick={this._onModalClose}>
-              X
-            </button>
-          </Modal>
-        </button>
+        {button}
       </div>
     );
   }

@@ -53,6 +53,7 @@ const routes = (
       <IndexRoute component={MainIndex} />
       <Route path="stories" component={MainIndex}/>
       <Route path="comments" component={CommentsIndex}/>
+      <Route path="likes" component={MainIndex}/>
     </Route>
   </Route>
 );

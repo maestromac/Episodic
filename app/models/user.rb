@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :followers, through: :in_follows, source: :follower
   has_many :followees, through: :out_follows, source: :followee
 
+  has_many :likes, dependent: :destroy
+  has_many :liked_stories, through: :likes, source: :story
+
   attr_reader :password
 
   after_initialize :ensure_session_token
@@ -50,6 +53,10 @@ class User < ActiveRecord::Base
     out_follows.exists?(followee_id: user.id)
   end
 
+  def liked?(story)
+    likes.exists?(story_id: story.id)
+  end
+
   def followees_count
     self.followees.count
   end
@@ -57,5 +64,6 @@ class User < ActiveRecord::Base
   def followers_count
     self.followers.count
   end
+
 
 end

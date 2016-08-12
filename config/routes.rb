@@ -7,6 +7,9 @@ Rails.application.routes.draw do
         collection do
           get :followed
         end
+        collection do
+          get :liked
+        end
       end
       resources :comments, only: [:index, :update, :destroy]
       resource :follow, only: [:create, :destroy]
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
 
     resources :stories, only: [:create, :destroy, :index, :show, :update] do
       resources :comments, only: [:index]
+      resource :like, only: [:create, :destroy]
     end
 
     resource :session, only: [:create, :destroy]
