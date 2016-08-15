@@ -4,7 +4,7 @@
 
 [heroku]: http://aa-episodic.herokuapp.com
 
-Episodic is a full-stack web application inspired by Medium.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend. Medium was built as a single-page application.
+Episodic is a full-stack web application inspired by Medium.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend. Episodic was built as a single-page application.
 
 ## Features & Implementation
 
@@ -17,6 +17,42 @@ Episodic is a full-stack web application inspired by Medium.  It utilizes Ruby o
   - keep tracks of stories, comments, and likes.
   - manage followings and followers
 - Feed page
+
+## Technical Details
+
+Since user can access majority of Episodic's content without being logged-in, buttons were isolated as it's own component. The button component will decide how it will render based on current log-in status (`SessionStore#isUserLoggedIn`). buttons such as the Follow button will also check if current user is following the viewed user.
+
+```javascript
+render () {
+  render () {
+
+    let followButton;
+    if (SessionStore.isUserLoggedIn()) {
+      if (this.props.isFollowing) {
+        followButton = (
+          <button className="following-button" onClick={this.handleUnfollow}> Following </button>
+        );
+      } else {
+        followButton = (
+          <button className="follow-button" onClick={this.handleFollow}> Follow </button>
+        );
+      }
+    } else {
+      followButton = (
+        <div className="follow-button-special">
+          <SessionButton name={"Follow"} />
+        </div>
+      );
+    }
+
+    return (
+      <div className="user-view-following-status">
+        {followButton}
+      </div>
+    );
+  }
+}
+```
 
 ## Libraries
 
