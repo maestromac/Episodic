@@ -20,12 +20,10 @@ Episodic is a full-stack web application inspired by Medium.  It utilizes Ruby o
 
 ## Technical Details
 
-Since user can access majority of Episodic's content without being logged-in, buttons were isolated as it's own component. The button component will decide how it will render based on current log-in status (`SessionStore#isUserLoggedIn`). buttons such as the Follow button will also check if current user is following the viewed user.
+Since user can access majority of Episodic's content without being logged-in, buttons were isolated as it's own component. The button component will decide how it will render based on current log-in status (`SessionStore#isUserLoggedIn`). Buttons such as the Follow button will also check if current user is following the viewed user.
 
 ```javascript
-render () {
   render () {
-
     let followButton;
     if (SessionStore.isUserLoggedIn()) {
       if (this.props.isFollowing) {
@@ -51,7 +49,6 @@ render () {
       </div>
     );
   }
-}
 ```
 
 ## Libraries
