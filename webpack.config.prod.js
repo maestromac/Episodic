@@ -8,6 +8,9 @@ module.exports = {
     path: "./app/assets/javascripts",
     filename: "bundle.js"
   },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  },
   plugins:[
     new webpack.DefinePlugin({
       'process.env':{

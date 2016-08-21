@@ -7,6 +7,9 @@ module.exports = {
     path: "./app/assets/javascripts",
     filename: "bundle.js"
   },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  },
   module: {
     loaders: [
       {
