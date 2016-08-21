@@ -19,7 +19,6 @@ module Episodic
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
     config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {
@@ -29,6 +28,7 @@ module Episodic
         :s3_region => ENV["s3_region"]
       }
     }
+
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
