@@ -17,7 +17,7 @@ module.exports = {
           presets: ['react', 'es2015']
         }
       },
-      
+
       {
         test: [/\.css$/],
         loader:'style!css',
@@ -27,9 +27,9 @@ module.exports = {
   resolve: {
     extensions: ["", ".js", ".jsx"],
     modulesDirectories: [
-   'node_modules',
-   'node_modules/blueimp-file-upload/js/vendor'
-]
+      'node_modules',
+      'node_modules/blueimp-file-upload/js/vendor'
+    ]
   },
   devtool: 'source-map'
 };

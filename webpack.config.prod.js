@@ -23,17 +23,26 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
         loader: 'babel',
         query: {
           presets: ['react', 'es2015']
         }
+      },
+
+      {
+        test: [/\.css$/],
+        loader:'style!css',
       }
     ]
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ["", ".js", ".jsx"]
+    extensions: ["", ".js", ".jsx"],
+    modulesDirectories: [
+      'node_modules',
+      'node_modules/blueimp-file-upload/js/vendor'
+    ]
   }
 };
