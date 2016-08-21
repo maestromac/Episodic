@@ -18,6 +18,7 @@ likes = Like.create([
   { user_id: User.find_by(username: "iasimov").id, story_id: Story.find_by(title: "Go See Eddie" ).id },
   { user_id: User.find_by(username: "iasimov").id, story_id: Story.find_by(title: "The Last Leaf" ).id },
   { user_id: User.find_by(username: "iasimov").id, story_id: Story.find_by(title: "The Ransom of Red Chief" ).id },
+
   { user_id: User.find_by(username: "rbradbury").id, story_id: Story.find_by(title: "The Legend of Sleepy Hollow Part 1" ).id },
   { user_id: User.find_by(username: "rbradbury").id, story_id: Story.find_by(title: "The Legend of Sleepy Hollow Part 2" ).id },
   { user_id: User.find_by(username: "rbradbury").id, story_id: Story.find_by(title: "Gold" ).id },
@@ -55,7 +56,6 @@ likes = Like.create([
   { user_id: User.find_by(username: "ohenry").id, story_id: Story.find_by(title: "The Last Question" ).id },
   { user_id: User.find_by(username: "ohenry").id, story_id: Story.find_by(title: "The one who waits" ).id },
   { user_id: User.find_by(username: "ohenry").id, story_id: Story.find_by(title: "The Dog In The Red Bandana" ).id },
-  { user_id: User.find_by(username: "ohenry").id, story_id: Story.find_by(title: "Children of the Corn Part 1" ).id },
   { user_id: User.find_by(username: "ohenry").id, story_id: Story.find_by(title: "Once a Week Won't Kill You" ).id },
   { user_id: User.find_by(username: "ohenry").id, story_id: Story.find_by(title: "Go See Eddie" ).id },
   { user_id: User.find_by(username: "ohenry").id, story_id: Story.find_by(title: "The Last Leaf" ).id },
@@ -64,11 +64,8 @@ likes = Like.create([
   { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "The Legend of Sleepy Hollow Part 2" ).id },
   { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "The Last Question" ).id },
   { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "The one who waits" ).id },
-  { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "The Dog In The Red Bandana" ).id },
-  { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "Children of the Corn Part 1" ).id },
   { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "Children of the Corn Part 2" ).id },
   { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "Go See Eddie" ).id },
-  { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "A Girl I knew" ).id },
   { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "The Ransom of Red Chief" ).id },
   { user_id: User.find_by(username: "jupdike").id, story_id: Story.find_by(title: "A&P" ).id },
 
