@@ -2,7 +2,7 @@ users = User.create([
   {username: "guest",
     pen_name: "Guest User",
     password: "password",
-    description: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+    description: "Last name User, first name Guest. Let it be known, I'm here to do the test."
   },
 
   {username: "wirving",
