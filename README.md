@@ -2,7 +2,9 @@
 
 [Episodic live][heroku]
 
-[heroku]: http://aa-episodic.herokuapp.com
+[heroku]: http://www.episodic.space/
+
+![Image of Yaktocat](docs/sample.png)
 
 Episodic is a full-stack web application inspired by Medium.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend. Episodic was built as a single-page application.
 
@@ -69,7 +71,7 @@ Since user can access majority of Episodic's content without being logged-in, bu
 
 In addition to the features already implemented, I plan to continue work on this project.  The next steps for Episodic are outlined below.
 
-- [ ] Sign up/Log in by email, twitter, or FB
+- [ ] Sign up/Log with twitter or FB
 - [ ] Richer story creation and editing with MediumEditor image add-on
 - [ ] Tag stories with multiple tags and search stories by tag
 - [ ] Bookmark stories
