@@ -15,13 +15,6 @@ const React = require('react'),
       StoryEdit = require('./components/story_edit'),
       CommentsIndex = require('./components/comments_index');
 
-
-// dev test
-// window.SessionApiUtil = require('./util/session_api_util.jsx');
-// window.SessionActions = require('./actions/session_actions');
-// window.StoryActions = require('./actions/story_actions');
-// window.StoryStore = require('./stores/story_store');
-
 const App = React.createClass({
   render () {
     return (
@@ -38,17 +31,18 @@ let _ensureLoggedIn = (nextState, replace) => {
     replace('/');
   }
 };
-// <Route path="login" component={LoginForm} />
-// <Route path="signup" component={SignupForm} />
-//
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={MainIndex} />
     <Route path="/stories/:id" component={StoryView} />
-    <Route path="/stories/:id/edit" component={StoryEdit} />
+    <Route path="/stories/:id/edit"
+      component={StoryEdit}
+      onEnter={ _ensureLoggedIn }/>
     <Route path="/new-story" component={StoryForm} onEnter={ _ensureLoggedIn }/>
     <Route path="/feed" component={MainIndex} onEnter={ _ensureLoggedIn }/>
+    <Route path="/picks" component={MainIndex} />
+    <Route path="/popular" component={MainIndex} />
     <Route path="/user/:id" component={UserView}>
       <IndexRoute component={MainIndex} />
       <Route path="stories" component={MainIndex}/>

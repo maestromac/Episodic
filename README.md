@@ -1,6 +1,6 @@
 # Episodic
 
-[Episodic live][heroku]
+[live][heroku]
 
 [heroku]: http://www.episodic.space/
 

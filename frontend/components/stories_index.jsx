@@ -24,7 +24,6 @@ const StoriesIndex = React.createClass({
 
   componentWillReceiveProps (nextProps) {
     this.id = parseInt(nextProps.authorId);
-    // StoryActions.fetchSingleStory(this.id);
 
     if (nextProps.path.indexOf("likes") !== -1) {
       StoryActions.fetchAllLikedStories(this.id);

@@ -62,25 +62,35 @@ const Header = React.createClass({
         </ul>
       </nav>
     );
+
+    let pick = <Link to={'/picks'}>Editor's Picks</Link>;
+    let popular = <Link to={'/popular'}>Popular</Link>;
     let feed = SessionStore.isUserLoggedIn() ?
-      <Link to={`/feed`}>Feed</Link> : <SessionButton name={`Feed`} />;
+    <Link to={`/feed`}>Feed</Link> : <SessionButton name={`Feed`} />;
 
     let logout = <button onClick={this.logOut}>Log Out</button>;
     let metabarLower = (
       <ul>
-        <li>Editor's Pick</li>
-        <li>Popular</li>
+
+        <li className={this.matchLinkWithURL("pick")}>
+          {pick}
+        </li>
+
+        <li className={this.matchLinkWithURL("popular")}>
+          {popular}
+        </li>
 
         <li className={this.matchLinkWithURL("feed")}>
           {feed}
         </li>
 
-        <li>Horror</li>
-        <li>Fiction</li>
       </ul>
     );
 
-    if (this.props.path !== "/" && this.props.path !== "/feed" ) {
+    if (this.props.path !== "/" &&
+        this.props.path !== "/feed" &&
+        this.props.path !== "/picks" &&
+        this.props.path !== "/popular") {
       metabarLower = "";
     }
 
@@ -112,10 +122,6 @@ const Header = React.createClass({
 
                           <li>
         <Link to={`/new-story`}>New Story</Link>
-                          </li>
-
-                          <li>
-        <Link to={`/user/${SessionStore.currentUser().id}/drafts`}>Drafts</Link>
                           </li>
 
                           <li>
