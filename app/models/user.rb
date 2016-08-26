@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :description, length: { maximum: 140, allow_nil: true }
 
   has_attached_file :avatar, default_url: "profile-fallback.png"
+  # has_attached_file :avatar, default_url: "/images/profile-fallback.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :stories, foreign_key: :author_id

@@ -12,6 +12,33 @@ module.exports = {
     });
   },
 
+  fetchEditorStories (successCb, errorCb) {
+    $.ajax({
+      url: 'api/stories/picks',
+      method: 'GET',
+      success: (resp) => {
+        successCb(resp);
+      },
+      error: (resp) => {
+        debugger
+        errorCb(resp);
+      }
+    });
+  },
+
+  fetchPopularStories (successCb, errorCb) {
+    $.ajax({
+      url: 'api/stories/popular',
+      method: 'GET',
+      success: (resp) => {
+        successCb(resp);
+      },
+      error: (resp) => {
+        errorCb(resp);
+      }
+    });
+  },
+
   fetchAllStoriesByParticularAuthor (id, successCb, errorCb) {
     $.ajax({
       url: `/api/users/${id}/stories`,

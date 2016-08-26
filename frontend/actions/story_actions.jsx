@@ -8,6 +8,14 @@ const StoryActions = {
     StoryApiUtil.fetchAllStories(this.receiveAllStories);
   },
 
+  fetchEditorStories () {
+    StoryApiUtil.fetchEditorStories(this.receiveAllStories);
+  },
+
+  fetchPopularStories () {
+    StoryApiUtil.fetchPopularStories(this.receiveAllStories);
+  },
+
   fetchAllStoriesByParticularAuthor (id) {
     StoryApiUtil.fetchAllStoriesByParticularAuthor(id, this.receiveAllStories);
   },

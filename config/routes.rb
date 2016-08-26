@@ -19,13 +19,13 @@ Rails.application.routes.draw do
       end
     end
 
-    # resources :follows, only: [:index] do
-    #   resources :stories, only: [:index]
-    # end
-
     resources :stories, only: [:create, :destroy, :index, :show, :update] do
       resources :comments, only: [:index]
       resource :like, only: [:create, :destroy]
+      collection do
+        get :picks
+        get :popular
+      end
     end
 
     resource :session, only: [:create, :destroy]

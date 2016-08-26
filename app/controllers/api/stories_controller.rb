@@ -17,6 +17,14 @@ class Api::StoriesController < ApplicationController
     @stories = Story.where(author_id: feed_authors)
   end
 
+  def picks
+    @stories = Story.joins(:comments).group('stories.id').having('count(story_id) > 5')
+  end
+
+  def popular
+    @stories = Story.joins(:likes).group('stories.id').having('count(story_id) > 5')
+  end
+
   def liked
     @stories = User.find(params[:user_id]).liked_stories
   end
