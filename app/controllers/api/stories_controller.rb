@@ -52,7 +52,7 @@ class Api::StoriesController < ApplicationController
     end
   end
 
-  def destroy ###
+  def destroy
     @story = Story.find(params[:id])
 
     if @story.destroy
