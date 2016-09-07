@@ -57,7 +57,13 @@
 .user-view-links-active {
   a {
     color: black;
-    font-weight: 400;
+    font-weight: 300;
+  }
+}
+.user-view-links-active:hover {
+  a {
+    color: black;
+    font-weight: 300;
   }
 }
 
@@ -107,6 +113,9 @@
   font-size: 15px;
   background: #00ab6c;
   color: white;
+}
+.following-button:hover{
+    color: white;
 }
 
 .user-view-followings-followers {

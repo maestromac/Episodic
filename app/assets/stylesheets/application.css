@@ -42,6 +42,10 @@ button, a {
   cursor: pointer;
 }
 
+button:hover, a:hover {
+  color: #02B875;
+}
+
 main {
 }
 
