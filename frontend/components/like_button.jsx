@@ -24,40 +24,44 @@ const LikeButton = React.createClass({
     });
   },
 
-  render () {
-
-    let likeButton;
+  renderLikeButton() {
     if (SessionStore.isUserLoggedIn()) {
-      if (this.state.liked) {
-        likeButton = (
-          <div className="user-view-liked-status">
-            <button
-              className="heart-filled"
-              onClick={this.handleUnlike}>
-            </button> {this.state.count}
-          </div>
-        );
-      } else {
-        likeButton = (
-          <div className="user-view-liked-status">
-            <button
-              className="heart"
-              onClick={this.handleLike}>
-            </button> {this.state.count}
-          </div>
-        );
-      }
+      return this.renderLoggedInLikeButton();
+    } else {
+      return (<SessionButton name={this.state.count} klass={"heart"} />);
+    }
+  },
+
+  renderLoggedInLikeButton() {
+    let likeButton;
+    if (this.state.liked) {
+      likeButton = (
+        <button
+          className="heart-filled"
+          onClick={this.handleUnlike}>
+        </button>
+      );
     } else {
       likeButton = (
-        <div>
-          <SessionButton name={this.state.count} klass={"heart"} />
-        </div>
+        <button
+          className="heart"
+          onClick={this.handleLike}>
+        </button>
       );
     }
 
     return (
+      <div className="user-view-liked-status">
+        {likeButton} {this.state.count}
+      </div>
+    );
+  },
+
+  render () {
+
+    return (
       <div>
-        {likeButton}
+        {this.renderLikeButton()}
       </div>
     );
   }
