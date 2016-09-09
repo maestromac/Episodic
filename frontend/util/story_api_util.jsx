@@ -20,7 +20,6 @@ module.exports = {
         successCb(resp);
       },
       error: (resp) => {
-        debugger
         errorCb(resp);
       }
     });
