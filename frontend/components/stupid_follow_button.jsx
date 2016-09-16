@@ -19,38 +19,42 @@ const StupidFollowButton = React.createClass({
     this.setState({ following: true });
   },
 
-  render () {
-
-    let followButton;
-    if (SessionStore.isUserLoggedIn()) {
-      if (this.state.following) {
-        followButton = (
-          <button
-            className="following-button"
-            onClick={this.handleUnfollow}>
-              Following
-          </button>
-        );
-      } else {
-        followButton = (
-          <button
-            className="follow-button"
-            onClick={this.handleFollow}>
-              Follow
-          </button>
-        );
-      }
+  renderFollowRelationButton() {
+    if (this.state.following) {
+      return (
+        <button
+          className="following-button"
+          onClick={this.handleUnfollow}>
+            Following
+        </button>
+      );
     } else {
-      followButton = (
+      return (
+        <button
+          className="follow-button"
+          onClick={this.handleFollow}>
+            Follow
+        </button>
+      );
+    }
+  },
+
+  renderFollowButton () {
+    if (SessionStore.isUserLoggedIn()) {
+      return this.renderFollowRelationButton();
+    } else {
+      return (
         <div className="follow-button-special">
           <SessionButton name={"Follow"} />
         </div>
       );
     }
+  },
 
+  render () {
     return (
       <div className="user-view-following-status">
-        {followButton}
+        {this.renderFollowButton()}
       </div>
     );
   }
