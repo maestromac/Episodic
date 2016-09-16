@@ -10,8 +10,6 @@ const React = require('react'),
 import Avatar from 'react-avatar';
 import { Router, Route, IndexRoute, Link, hashHistory} from 'react-router';
 
-
-
 const StoryView = React.createClass({
   getInitialState () {
     this.id = parseInt(this.props.params.id);
@@ -40,46 +38,29 @@ const StoryView = React.createClass({
     return {__html: this.state.story.body };
   },
 
-  // {
-  //   story.body.split("\n").map( (paragraph, idx) => {
-  //     return (
-  //       <div key={`${idx}`}>
-  //         <p>{paragraph}</p>
-  //         <br />
-  //       </div>
-  //     );
-  //   })
-  // }
-
-  //
-  //   <Link to={`/user/${story.author_id}`}>
-  //     <Avatar
-  //       size={33}
-  //       round={true}
-  //       src={story.avatar} />
-  //   </Link>
-  //   <h1 className="medium-color">
-  //     <Link to={`/user/${story.author_id}`}>
-  //       {story.author}
-  //     </Link>
-  //   </h1>
-  render () {
-    let story = this.state.story;
-    let likes;
+  publishedDate () {
     let date;
-    if (story) {
-      date = new Date(story.created_at).toDateString();
-      date = date.split(" ").splice(1, 2).join(" ");
-      likes = (
-        <ul className="stories-index-item-info-buttons">
-          <li>
-          <LikeButton liked={story.liked} count={story.likes} id={story.id}/>
-          </li>
-          <li>{story.comments} comments </li>
-        </ul>
-      );
-    }
+    date = new Date(this.state.story.created_at).toDateString();
+    date = date.split(" ").splice(1, 2).join(" ");
+    return date;
+  },
+
+  likeCounts () {
+    let likes;
+    let story = this.state.story;
+    likes = (
+      <ul className="stories-index-item-info-buttons">
+      <li>
+      <LikeButton liked={story.liked} count={story.likes} id={story.id}/>
+      </li>
+      <li>{story.comments} comments </li>
+      </ul>
+    );
+  },
+
+  renderContent () {
     let content = "";
+    let story = this.state.story;
     if (story) {
       content = (
          <div className="center whole-story">
@@ -99,7 +80,7 @@ const StoryView = React.createClass({
               <li className="gray">{story.author_des}</li>
 
               <li className="publish-date">
-                {date} • {story.readTime} min read
+                {this.publishedDate()} • {story.readTime} min read
               </li>
 
             </ul>
@@ -109,15 +90,32 @@ const StoryView = React.createClass({
           <br />
           <div dangerouslySetInnerHTML={this.createMarkup()} />
           <br />
-          {likes}
+          {this.likeCounts()}
         </div>
       );
     }
+    return content;
+  },
+
+  renderCommentSection () {
+    if (this.state.story) {
+      return (
+        <div>
+          <CommentForm storyId={this.id}/>
+          <br/>
+          <CommentsIndex storyId={this.id} />
+        </div>
+      );
+    } else {
+      return <div/>;
+    }
+  },
+
+  render () {
     return (
       <div>
         <div className="story-plate">
-          {content}
-
+          {this.renderContent()}
         </div>
 
         <div className="divider-plate">
@@ -129,16 +127,11 @@ const StoryView = React.createClass({
         </div>
 
         <div className="comments-plate">
-          <CommentForm storyId={this.id}/>
-          <br/>
-          <CommentsIndex storyId={this.id} />
+          {this.renderCommentSection()}
         </div>
       </div>
     );
   }
-
-
-
 });
 
 
