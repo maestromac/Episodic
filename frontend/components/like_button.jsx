@@ -24,7 +24,7 @@ const LikeButton = React.createClass({
     });
   },
 
-  renderLikeButton() {
+  renderLikeButton () {
     if (SessionStore.isUserLoggedIn()) {
       return this.renderLoggedInLikeButton();
     } else {
@@ -32,7 +32,7 @@ const LikeButton = React.createClass({
     }
   },
 
-  renderLoggedInLikeButton() {
+  renderLoggedInLikeButton () {
     let likeButton;
     if (this.state.liked) {
       likeButton = (

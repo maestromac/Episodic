@@ -44,93 +44,107 @@ const UserView = React.createClass({
     }
   },
 
-  render () {
+  capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  },
 
-    let user = this.state.user;
-    let content = (<div></div>);
+  createLink (name) {
+    return (
+      <li className={this.matchLinkWithURL(name)}>
+        <Link to={`/user/${this.state.user.id}/${name}`}>
+          {this.capitalizeFirstLetter(name)}
+        </Link>
+      </li>
+    );
+  },
 
-    if (user) {
-      content = (
+  renderView () {
+    if (this.state.user) {
+      return (
         <div>
           <div className="user-view-plate">
             <div className="center">
               <div className="user-view">
-
-                <div className="user-view-profile">
-                  <ul>
-                    <h1>{user.pen_name}</h1>
-                    <li>{user.description}</li>
-                  </ul>
-
-                  <Avatar
-                  className="use-view-plate-avatar"
-                  size={100}
-                  round={true}
-                  src={user.avatar} />
-                </div>
-
-                <ul className="user-view-followings-followers">
-                  <li>
-                    <FollowCountsButton
-                      name={ `${user.followees_count} Followings` }
-                      users={user.followees}/>
-                  </li>
-                  <li>
-                    <FollowCountsButton
-                      name={ `${user.followers_count} Followers` }
-                      users={user.followers}/>
-                  </li>
-                </ul>
-
-                {
-                  user.id !== SessionStore.currentUser().id ?
-                    <FollowButton
-                        isFollowing={user.followed}
-                        followeeId={this.props.routeParams.id} /> : ""
-                }
+                {this.renderLoadedView()}
               </div>
-              <div>
                 <ul className="user-view-links">
-
-                  <li className={this.matchLinkWithURL("stories")}>
-                    <Link to={`/user/${user.id}/stories`}>Stories</Link>
-                  </li>
-
-                  <li className={this.matchLinkWithURL("comments")}>
-                    <Link to={`/user/${user.id}/comments`}>Comments</Link>
-                  </li>
-
-                  <li className={this.matchLinkWithURL("likes")}>
-                    <Link to={`/user/${user.id}/likes`}>Likes</Link>
-                  </li>
-
+                  {this.createLink("stories")}
+                  {this.createLink("comments")}
+                  {this.createLink("likes")}
                 </ul>
-              </div>
             </div>
           </div>
-
-          <div className="user-view-plate-published">
-            {
-              React.Children.map(this.props.children,
-               (child) => React.cloneElement(child, {
-                 authorId: user.id,
-               })
-              )
-            }
-          </div>
-
+          {this.renderPublished()}
         </div>
       );
+    } else {
+      return (<div></div>);
     }
+  },
 
+  renderLoadedView () {
+    let user = this.state.user;
     return (
       <div>
+        <div className="user-view-profile">
+          <ul>
+            <h1>{user.pen_name}</h1>
+            <li>{user.description}</li>
+          </ul>
 
-        {content}
+          <Avatar
+          className="use-view-plate-avatar"
+          size={100}
+          round={true}
+          src={user.avatar} />
+        </div>
 
+        <ul className="user-view-followings-followers">
+          <li>
+            <FollowCountsButton
+              name={ `${user.followees_count} Followings` }
+              users={user.followees}/>
+          </li>
+          <li>
+            <FollowCountsButton
+              name={ `${user.followers_count} Followers` }
+              users={user.followers}/>
+          </li>
+        </ul>
+
+        {
+          user.id !== SessionStore.currentUser().id ?
+            <FollowButton
+                isFollowing={user.followed}
+                followeeId={this.props.routeParams.id} /> : ""
+        }
+      </div>
+    );
+
+  },
+
+  renderPublished () {
+    return (
+      <div className="user-view-plate-published">
+        {
+          React.Children.map(this.props.children,
+           (child) => React.cloneElement(child, {
+             authorId: this.state.user.id,
+           })
+          )
+        }
+      </div>
+    );
+  },
+
+  render () {
+    return (
+      <div>
+        {this.renderView()}
       </div>
     );
   }
+
 });
 
 module.exports = UserView;
