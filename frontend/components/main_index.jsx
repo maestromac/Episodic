@@ -3,17 +3,26 @@ const React = require('react'),
       StoryActions = require('../actions/story_actions'),
       StoryStore = require('../stores/story_store'),
       StoriesIndex = require('./stories_index'),
-      hashHistory = require('react-router').hashHistory;
-
-
+      hashHistory = require('react-router').hashHistory,
+      Sidebar = require('./sidebar');
 
 const MainIndex = React.createClass({
+  renderSidebar () {
+    let tests = ["/", "/feed", "/popular", "/picks"];
+    if (tests.includes(this.props.location.pathname)) {
+      return <Sidebar/>;
+    }
+  },
+
   render () {
     return (
       <div className="main-plate">
-        <StoriesIndex
-          authorId={this.props.authorId}
-          path={this.props.location.pathname} />
+       <div className='main-center flex'>
+          <StoriesIndex
+            authorId={this.props.authorId}
+            path={this.props.location.pathname} />
+            {this.renderSidebar()}
+        </div>
       </div>
     );
   }

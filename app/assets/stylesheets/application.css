@@ -54,6 +54,16 @@ main {
   margin: 0 auto;
 }
 
+.main-center {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .story-plate {
   margin: 0 auto;
   background: #FFFFFF;

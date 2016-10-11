@@ -80,7 +80,7 @@ const StoriesIndex = React.createClass({
     });
 
     return (
-      <ul className='center'>
+      <ul>
         {
           stories.map( (story, idx) => {
             return <StoriesIndexItem

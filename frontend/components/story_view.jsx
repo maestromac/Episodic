@@ -45,10 +45,8 @@ const StoryView = React.createClass({
     return date;
   },
 
-  likeCounts () {
-    let likes;
-    let story = this.state.story;
-    likes = (
+  likeCounts (story) {
+    return (
       <ul className="stories-index-item-info-buttons">
       <li>
       <LikeButton liked={story.liked} count={story.likes} id={story.id}/>
@@ -90,7 +88,7 @@ const StoryView = React.createClass({
           <br />
           <div dangerouslySetInnerHTML={this.createMarkup()} />
           <br />
-          {this.likeCounts()}
+          {this.likeCounts(story)}
         </div>
       );
     }
