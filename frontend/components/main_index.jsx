@@ -7,6 +7,15 @@ const React = require('react'),
       Sidebar = require('./sidebar');
 
 const MainIndex = React.createClass({
+  flexIt () {
+    let cases = ["/", "/feed", "/popular", "/picks"];
+    if (cases.includes(this.props.location.pathname)) {
+      return "main-center flex";
+    } else {
+      return "main-center";
+    }
+  },
+
   renderSidebar () {
     let tests = ["/", "/feed", "/popular", "/picks"];
     if (tests.includes(this.props.location.pathname)) {
@@ -17,7 +26,7 @@ const MainIndex = React.createClass({
   render () {
     return (
       <div className="main-plate">
-       <div className='main-center flex'>
+       <div className={this.flexIt()}>
           <StoriesIndex
             authorId={this.props.authorId}
             path={this.props.location.pathname} />
