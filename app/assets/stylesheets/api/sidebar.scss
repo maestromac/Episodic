@@ -1,0 +1,26 @@
+.sidebar-item {
+  max-width: 300px;
+  h1, h2 {
+    font-size: 14px;
+    font-weight: 100;
+  }
+
+  h1 {
+    color: gray;
+  }
+
+}
+
+.sidebar-item-title {
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(0,0,0,.09);
+}
+
+.sidebar-item-list {
+  display: flex;
+  margin: 15px 0px;
+  ul {
+    margin-left: 15px;
+  }
+
+}

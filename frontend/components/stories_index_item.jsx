@@ -69,7 +69,7 @@ const StoriesIndexItem = React.createClass({
           <Link to={`/stories/${story.id}`}
                 className="stories-index-item-title">
                 {story.title}
-              </Link>
+          </Link>
           <br />
             {story.body}
           <br />

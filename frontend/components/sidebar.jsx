@@ -28,21 +28,29 @@ const Sidebar = React.createClass ({
   },
 
   renderSidebar () {
+    let sidebar;
     let stories;
     if (this.state.stories) {
       stories = this.state.stories.sort( () => {
         return .5 - Math.random();
       }).splice(0, 7);
+
+      sidebar = (
+        <div className="sidebar-item">
+
+          <div className="sidebar-item-title">
+            <h1>Reading Roulette</h1>
+            <h2>Take a look at these great stories</h2>
+          </div>
+          <ul>
+            {stories.map( (story, idx) => {
+              return  <SidebarItem story={story} key={idx}/>;
+            })}
+          </ul>
+        </div>
+      );
     }
-    return (
-      <div>
-        <ul>
-          {stories.map( (story, idx) => {
-            return  <SidebarItem story={story} key={idx}/>;
-          })}
-        </ul>
-      </div>
-    );
+    return sidebar;
   },
 
   render () {
