@@ -24,7 +24,9 @@ const SessionHub = React.createClass({
 
   _onChange () {
     if ( SessionStore.isUserLoggedIn() ) {
-      hashHistory.push('/');
+      // hashHistory.push('#');
+      window.location.href = "/";
+      // this.forceUpdate();
     }
   },
 

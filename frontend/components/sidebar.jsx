@@ -6,21 +6,49 @@ const React = require('react'),
       SessionActions = require('../actions/session_actions'),
       SessionStore = require('../stores/session_store'),
       ErrorActions = require('../actions/error_actions'),
-      ErrorStore = require('../stores/error_store');
+      ErrorStore = require('../stores/error_store'),
+      StoryStore = require('../stores/story_store'),
+      SidebarItem = require('./sidebar_item');
 
 const Sidebar = React.createClass ({
-  // getInitialState () {
-  //
-  // },
+  getInitialState () {
+    return { stories: [] };
+  },
+
+  componentDidMount () {
+    this.listener = StoryStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount () {
+    this.listener.remove();
+  },
+
+  _onChange () {
+    this.setState({ stories: StoryStore.all() });
+  },
+
+  renderSidebar () {
+    let stories;
+    if (this.state.stories) {
+      stories = this.state.stories.sort( () => {
+        return .5 - Math.random();
+      }).splice(0, 7);
+    }
+    return (
+      <div>
+        <ul>
+          {stories.map( (story, idx) => {
+            return  <SidebarItem story={story} key={idx}/>;
+          })}
+        </ul>
+      </div>
+    );
+  },
 
   render () {
     return (
       <div>
-        <ul className="testing">
-          <li>This story is popping</li>
-          <li>So is this one</li>
-          <li>and this one too</li>
-        </ul>
+        {this.renderSidebar()}
       </div>
     );
   }

@@ -31,16 +31,6 @@ const StoriesIndex = React.createClass({
     else if (this.id) {
       StoryActions.fetchAllStoriesByParticularAuthor(this.id);
     } else {
-      // if (nextProps.path === "/feed") {
-      //   StoryActions.fetchFeedStories(SessionStore.currentUser().id);
-      // } else if (nextProps.path === "/") {
-      //   StoryActions.fetchAllStories();
-      // } else if (nextProps.path === "/popular") {
-      //
-      // } else if (nextProps.path === "/picks") {
-      //
-      // }
-
       switch (nextProps.path) {
         case "/":
           StoryActions.fetchAllStories();
@@ -81,14 +71,12 @@ const StoriesIndex = React.createClass({
 
     return (
       <ul>
-        {
-          stories.map( (story, idx) => {
+        {stories.map( (story, idx) => {
             return <StoriesIndexItem
                       story={story}
                       key={idx}
                       path={this.props.path}/>;
-          })
-        }
+        })}
       </ul>
     );
   }
