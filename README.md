@@ -1,10 +1,10 @@
 # Episodic
 
-[live][heroku]
+[live][episodic]
 
-[heroku]: http://www.episodic.space/
+[episodic]: http://www.episodic.space/
 
-![Image of Yaktocat](docs/sample.png)
+![Image of episodic](docs/sample.png)
 
 Episodic is a full-stack web application inspired by Medium.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend. Episodic was built as a single-page application.
 
